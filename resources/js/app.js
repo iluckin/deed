@@ -169,6 +169,33 @@ class App {
 // 延迟执行
 $(() => {
 
+    function browser() {
+        var explorer = window.navigator.userAgent ;
+        //判断是否为IE浏览器
+        if (explorer.indexOf("MSIE") >= 0) {
+            return 'ie';
+        }
+        //判断是否为Firefox浏览器
+        else if (explorer.indexOf("Firefox") >= 0) {
+            return 'Firefox';
+        }
+        //判断是否为Chrome浏览器
+        else if(explorer.indexOf("Chrome") >= 0){
+            return 'Chrome';
+        }
+        //判断是否为Opera浏览器
+        else if(explorer.indexOf("Opera") >= 0){
+            return 'Opera';
+        }
+        //判断是否为Safari浏览器
+        else if(explorer.indexOf("Safari") >= 0){
+            return 'Safari';
+        }
+    }
+
+    if ('Chrome' != browser()) {
+        $('.browser').show();
+    }
     // Functions
     function getObjectURL(file) {
         var url = null ;
@@ -272,5 +299,9 @@ $(() => {
                     $('select[name=town_id]').html(html)
                 }
             });
+    });
+
+    $('input[name=file]').change(e => {
+        $('.filename').text($('input[name=file]').val());
     });
 });

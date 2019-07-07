@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Community;
 use App\Models\Deed;
 use App\Services\CommunityService;
+use App\Services\RegionService;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -91,6 +92,10 @@ class DeedController extends Controller
             return back()->withErrors('添加成功');
         }
 
+        $this->validate($request, [
+            'community_id' => 'required|numeric|min:1',
+            'file' => 'required|mimes:xls,xlsx,xlsm,xltx,xltm'
+        ]);
         // 导入
 
         return $request->all();

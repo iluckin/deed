@@ -33,71 +33,50 @@
                                             <div class="tab-pane active text-dark">
                                                 <form class="form" action="{{ route('deed.store') }}" novalidate="" name="create-category" enctype="multipart/form-data" method="post">
                                                     @csrf
+                                                    <input type="hidden" name="import" value="{{ csrf_token() }}">
                                                     <div class="row">
-                                                        <input type="file" accept="image/gif, image/jpeg, image/png, image/jpg"  name="cover" id="classes-cover" style="width: 0; height: 0; padding: 0 !important; margin: 0 !important;">
+                                                        <input type="file" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"  name="file" id="upload" style="width: 0; height: 0; padding: 0 !important; margin: 0 !important;">
                                                         <div class="col text-dark">
                                                             <div class="row">
                                                                 <div class="col">
                                                                     <div class="form-group">
-                                                                        <label>省 <small class="text-danger">* 必选</small></label>
-                                                                        <select name="category_id" class="select2 form-control select2-selection">
-                                                                            <option value=1>北京</option>
-                                                                        </select>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col">
-                                                                    <div class="form-group">
-                                                                        <label>市 <small class="text-danger">* 必选</small></label>
-                                                                        <select name="city_id" class="select2 form-control select2-selection">
-                                                                            <option value=0>请选择城市</option>
-                                                                            @foreach($communities as $com)
-                                                                                <option value={{ $com->id }}>{{ $com->name }}</option>
+                                                                        <label>小区 <small class="text-danger">* 必选</small></label>
+                                                                        <select name="community_id" class="select2 form-control select2-single">
+                                                                            <option value=0>请选择小区</option>
+                                                                            @foreach($communities as $community)
+                                                                                <option @if($community->id == old('community_id', request('community_id'))) selected @endif value="{{ $community->id }}">{{ $community->name }}</option>
                                                                             @endforeach
                                                                         </select>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="row">
-                                                                <div class="col-6">
-                                                                    <div class="form-group">
-                                                                        <label>区 <small class="text-danger">* 必选</small></label>
-                                                                        <select name="town_id" class="select2 form-control select2-selection">
+                                                        </div>
+                                                    </div>
 
-                                                                        </select>
-                                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col mb-3">
+                                                            <label>文件 <small class="text-danger">* 必选</small> &nbsp;&nbsp;&nbsp;
+                                                                <span class="text-primary">
+                                                                    <a href="#">下载导入模板</a>
+                                                                </span>
+                                                            </label>
+                                                            <div class="mx-auto w-100 btn p-0 shadow-none" onclick="$('#upload').click()" style="width: 100%">
+                                                                <div class="d-flex justify-content-center align-items-center border-1 rounded" style="height: 80px; border-style: dashed">
+                                                                    <span class="text-dark">
+                                                                        <i class="fa fa-cloud-upload fa-fw fa-2x"></i> <br>
+                                                                        <span class="filename">选择文件</span>
+                                                                    </span>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <hr>
                                                     <div class="row">
-                                                        <div class="col-12 col-sm-auto mb-3">
-                                                            <div class="mx-auto btn p-0 shadow-none" onclick="$('#classes-cover').click()" style="width: 140px;">
-                                                                <div class="d-flex justify-content-center align-items-center border-1 bordered-hover rounded cover-box" style="height: 140px;">
-                                                        <span class="text-dark">
-                                                            <i class="fa fa-file-word-o fa-fw fa-2x"></i> <br> 点击选择
-                                                        </span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col d-flex flex-column flex-sm-row justify-content-between mb-3">
-                                                            <div class="text-center text-sm-left mb-2 mb-sm-0">
-                                                                <h6 class="pt-sm-2 pb-1 mb-0 text-nowrap">产权信息文件</h6>
-                                                                {{--<p class="mb-0">尺寸: 400X400</p>--}}
-                                                                <div class="text-muted">
-                                                                    <small>仅限 xmls/xml 文件</small>
-                                                                    <br>
-                                                                    <small>大小限制为 100M</small>
-                                                                </div>
-                                                            </div>
-                                                            <div class="text-center text-sm-right">
-                                                                {{--<span class="badge badge-secondary">administrator</span>--}}
-                                                                {{--<div class="text-muted"><small>Joined 09 Dec 2017</small></div>--}}
-                                                            </div>
+                                                        <div class="col">
+                                                            @include('components.validate-message')
                                                         </div>
                                                     </div>
                                                     <div class="row">
-                                                        @include('components.validate-message')
+
                                                         <div class="col d-flex justify-content-start">
                                                             <button class="btn btn-primary mr-2" type="submit">导入</button>
                                                             <a class="btn btn-default" href="{{ route('deed.index') }}">返回</a>
@@ -118,13 +97,11 @@
                                         <i class="fa fa-sticky-note"></i> 小提示
                                     </h6>
                                     <p class="card-text">
-                                        这里是对当前操作的很长很长的提示和快捷操作说明等.
-                                        这里是对当前操作的很长很长的提示和快捷操作说明等.
-                                        这里是对当前操作的很长很长的提示和快捷操作说明等.
-                                        这里是对当前操作的很长很长的提示和快捷操作说明等.
-                                        这里是对当前操作的很长很长的提示和快捷操作说明等.
+                                        导入文件目前仅支持excel格式. <br>
+                                        目前可支持格式后缀名：xls,xlsx,xlsm,xltx,xltm <br>
+                                        大小限制为50MB
                                     </p>
-                                    <a class="btn btn-default">
+                                    <a class="btn btn-default" href="{{ route('help.index') }}">
                                         <i class="fa fa-question-circle-o"></i> 更多帮助
                                     </a>
                                 </div>

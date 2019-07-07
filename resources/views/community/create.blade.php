@@ -81,6 +81,8 @@
                                                                         </select>
                                                                     </div>
                                                                 </div>
+                                                            </div>
+                                                            <div class="row">
                                                                 <div class="col">
                                                                     <div class="form-group">
                                                                         <label>区<small class="text-danger">* 必选</small></label>
@@ -89,8 +91,6 @@
                                                                         </select>
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                            <div class="row">
                                                                 <div class="col">
                                                                     <div class="form-group">
                                                                         <div class="form-group">

@@ -90,6 +90,12 @@
             @yield('main')
         </div>
     </main>
+    <div class="browser">
+        <div class="alert alert-warning">
+            <p><i class="fa fa-warning"></i> 兼容性提示</p>
+            检测到您使用的不是 Google Chrome 浏览器. 可能存在部分功能兼容性问题 <br> 引发的无法使用，建议您点击<a target="_blank" href="https://www.google.com/intl/zh-CN/chrome/">下载 Google Chrome</a>浏览器.
+        </div>
+    </div>
 </div>
 </body>
 </html>
