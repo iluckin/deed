@@ -1,0 +1,14 @@
+@import "mohithg-switchery/dist/switchery";
+@import "../../scss/bootstrap/variables";
+
+.switchery {
+  border: 0;
+  box-shadow: none;
+  vertical-align: top;
+
+  & > small {
+    border: 2px solid transparent;
+    background-clip: content-box;
+    box-shadow: none;
+  }
+}

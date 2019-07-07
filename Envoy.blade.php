@@ -6,5 +6,7 @@
 @endsetup
 
 @task('deploy')
-    cd /data && ls -la | grep -v '.|..' && git --version
+    cd /data/sites/deed
+    git pull
+    composer install --no-dev
 @endtask

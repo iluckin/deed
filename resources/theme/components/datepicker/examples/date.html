@@ -1,0 +1,15 @@
+<input id="flatpickr-date" class="form-control" placeholder="Date" type="text">
+<script>
+$("#flatpickr-date").flatpickr({
+  dateFormat: 'j M Y H:i',
+  enableTime: true,
+  time_24hr: true,
+  locale: Object.assign({}, flatpickr.l10ns.default, {
+    weekdays: {
+      shorthand: ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"],
+    },
+    rangeSeparator: " - "
+  }),
+  disableMobile: true
+});
+</script>

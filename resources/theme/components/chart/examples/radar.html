@@ -1,0 +1,28 @@
+<canvas id="radar-chart" height="180"></canvas>
+<script>
+new Chart(document.getElementById("radar-chart"), {
+  type: 'radar',
+  data: {
+    labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+    datasets: [
+      {
+        label: 'Radar',
+        borderColor: 'rgba(87, 228, 198, 0.8)',
+        backgroundColor: 'rgba(87, 228, 198, 0.5)',
+        data: [12.5, 12.5, 12.5, 12.5, 12.5, 12.5]
+      }
+    ]
+  },
+  options: {
+    maintainAspectRatio: false,
+    legend: {
+      display: false
+    },
+    scale: {
+      ticks: {
+        beginAtZero: true
+      }
+    }
+  }
+})
+</script>

@@ -1,13 +1,117 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
-
-// Variables
+@import url('https://fonts.lug.ustc.edu.cn/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i');
+@import "../theme/lib/font-awesome/css/font-awesome.min.css";
+@import "../theme/css/elements.theme.css";
+@import "../theme/components/elements.components.css";
 @import 'variables';
+@import "global";
 
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';
+.header {
+    height: 70px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+}
 
-.navbar-laravel {
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+.sidebar {
+    z-index: 11;
+    font-size: 1.14rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100px;
+    height: calc(100vh);
+    background-repeat: no-repeat;
+    background-position-x: center;
+    //background: transparent linear-gradient(160deg, $primary 80%, #1a78cf 99%) repeat scroll 0% 0%;
+    background-image: -webkit-linear-gradient(left, #00218d 0%, #0039bd 100%) !important;
+    z-index: 10;
+    border-width: 0px;
+    box-shadow: 0 5px 30px -5px rgba(37,45,51, .5);
+    //color: $white !important;
+    overflow-y: scroll;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    > .navbar-brand {
+        > .e-logo {
+            > .e-logo-text {
+                font-size: 1.10rem !important;
+                font-weight: 400 !important;
+            }
+            color: white !important;
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+
+    > .e-navlist {
+        ul li {
+            overflow: hidden;
+            .nav-link {
+                color: #e0e0e0;
+                &:hover {
+                    //color: $white;
+                }
+            }
+        }
+        > ul .sidebar-active {
+            //color: $white !important;
+            background-image: url("../theme/images/active-bg.svg");
+            background-repeat: no-repeat;
+            background-position-x: 92px;
+            background-position-y: center;
+            background-size: 13%;
+        }
+    }
+}
+.sidebar-avatar {
+    width: 36px;
+    height: 36px;
+    margin-top: -5px;
+}
+
+main {
+    z-index: 9;
+    margin-left: 100px;
+    padding-top: 80px !important;
+}
+
+.card-list-item {
+    overflow: hidden;
+    > .status {
+        text-align: center;
+        position: absolute;
+        right: -35px;
+        top: -11px;
+        width: 80px;
+        height: 35px;
+        padding-top: 12px;
+        -webkit-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+}
+
+.user-list-avatar-box {
+    min-width: 50px;
+    max-width: 50px;
+    > a {
+        > .user-list-avatar {
+            width: 42px;
+            height: 42px;
+        }
+    }
+}
+
+.cover-box {
+    background-size: 95%;
+    background-position: center;
+    background-repeat: no-repeat;
 }

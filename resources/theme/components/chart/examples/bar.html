@@ -1,0 +1,35 @@
+<canvas id="bar-chart" height="180"></canvas>
+<script>
+new Chart(document.getElementById("bar-chart"), {
+  type: 'bar',
+  data: {
+    labels: ['Mon', 'Tue', 'Wed'],
+    datasets: [
+      {
+        label: 'Bar',
+        backgroundColor: 'rgba(87, 228, 198, 0.8)',
+        borderColor: '#ffffff',
+        data: [7, 10, 13]
+      }
+    ]
+  },
+  options: {
+    maintainAspectRatio: false,
+    scales: {
+      yAxes: [
+        {
+          ticks: {
+            beginAtZero: true
+          }
+        }
+      ],
+      xAxes: [
+        {
+          categoryPercentage: 0.6,
+          barPercentage: 0.4,
+        }
+      ]
+    },
+  }
+})
+</script>

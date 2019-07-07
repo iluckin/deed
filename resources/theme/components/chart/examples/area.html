@@ -1,0 +1,31 @@
+<canvas id="area-chart" height="180"></canvas>
+<script>
+new Chart(document.getElementById("area-chart"), {
+  type: 'line',
+  data: {
+    labels: ['Mon', 'Tue', 'Wed', 'Thu'],
+    datasets: [
+      {
+        label: 'Area',
+        borderColor: '#ffffff',
+        borderWidth: 2,
+        backgroundColor: 'rgba(87, 228, 198, 0.6)',
+        pointRadius: 3,
+        data: [3, 12, 3, 12]
+      },
+    ]
+  },
+  options: {
+    maintainAspectRatio: false,
+    scales: {
+      yAxes: [
+        {
+          ticks: {
+            beginAtZero: true
+          }
+        }
+      ],
+    },
+  }
+})
+</script>

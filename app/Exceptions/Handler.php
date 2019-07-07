@@ -63,7 +63,7 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
-        if (array_key_exists($handler = get_class($exception), $this->handlers)) {
+        if ($request->expectsJson() && array_key_exists($handler = get_class($exception), $this->handlers)) {
             return $this->handlers[$handler]::handle($exception);
         }
 

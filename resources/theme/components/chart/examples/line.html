@@ -1,0 +1,29 @@
+<canvas id="line-chart" height="180"></canvas>
+<script>
+new Chart(document.getElementById("line-chart"), {
+  type: 'line',
+  data: {
+    labels: ['Mon', 'Tue', 'Wed', 'Thu'],
+    datasets: [
+      {
+        label: 'Line',
+        borderColor: 'rgba(87, 228, 198, 0.8)',
+        backgroundColor: 'transparent',
+        data: [3, 12, 3, 12]
+      }
+    ]
+  },
+  options: {
+    maintainAspectRatio: false,
+    scales: {
+      yAxes: [
+        {
+          ticks: {
+            beginAtZero: true
+          }
+        }
+      ],
+    },
+  }
+});
+</script>

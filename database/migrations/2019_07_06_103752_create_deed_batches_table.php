@@ -15,6 +15,9 @@ class CreateDeedBatchesTable extends Migration
     {
         Schema::create('deed_batches', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('serial')->nullable();
+            $table->bigInteger('deed_id')->index();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

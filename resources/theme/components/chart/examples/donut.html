@@ -1,0 +1,31 @@
+<canvas id="donut-chart" height="223"></canvas>
+<script>
+new Chart(document.getElementById("donut-chart"), {
+  type: 'doughnut',
+  data: {
+    labels: ['Mon', 'Tue', 'Wed'],
+    datasets: [
+      {
+        label: 'Donut',
+        backgroundColor: [
+          'rgba(255, 146, 139, 0.8)',
+          'rgba(87, 228, 198, 0.8)',
+          'rgba(60, 145, 218, 0.7)'
+        ],
+        hoverBorderColor: '#fff',
+        data: [5, 10, 8]
+      }
+    ]
+  },
+  options: {
+    maintainAspectRatio: false,
+    legend: {
+      position: 'bottom',
+      labels: {
+        usePointStyle: true,
+        padding: 20
+      }
+    }
+  }
+});
+</script>

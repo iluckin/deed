@@ -1,0 +1,42 @@
+<canvas id="horizontal-bar-dual-chart" height="223"></canvas>
+<script>
+new Chart(document.getElementById("horizontal-bar-dual-chart"), {
+  type: 'horizontalBar',
+  data: {
+    labels: ['Vue', 'Angular', 'React', 'Ember'],
+    datasets: [
+      {
+        label: 'One',
+        backgroundColor: 'rgba(87, 228, 198, 0.8)',
+        data: [35, 25, 40, 20]
+      },
+      {
+        label: 'Two',
+        backgroundColor: 'rgba(60, 145, 218, 0.7)',
+        data: [40, 15, 35, 30]
+      }
+    ]
+  },
+  options: {
+    maintainAspectRatio: false,
+    legend: {
+      display: false
+    },
+    scales: {
+      xAxes: [
+        {
+          ticks: {
+            beginAtZero: true
+          },
+        }
+      ],
+      yAxes: [
+        {
+          categoryPercentage: 0.6,
+          barPercentage: 0.8,
+        }
+      ]
+    },
+  }
+});
+</script>
