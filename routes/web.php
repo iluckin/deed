@@ -20,11 +20,17 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Admin'], function () {
     });
 
     Route::group(['module' => 'deed'], function () {
+        Route::resource('deed/batch', 'BatchDeedController');
+        Route::get('deed/import', 'DeedController@import')->name('deed.import');
         Route::resource('deed', 'DeedController');
     });
 
     Route::group(['module' => 'help'], function () {
-        Route::resource('help', 'HelpController');
+        Route::get('help', 'HelpController@index')->name('help.index');
+    });
+
+    Route::group(['module' => 'region'], function () {
+        Route::get('region/{province?}/{town?}', 'RegionController@region');
     });
 });
 

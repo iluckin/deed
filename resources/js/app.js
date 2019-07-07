@@ -258,4 +258,19 @@ $(() => {
     $('input[name=resource-large]').change(() => {
         $('form[name=prudect-resource-large]').submit();
     });
+
+    $('select[name=city_id]').change(function (e) {
+        url = "/region/1/" + $(this).val();
+        axios.get(url)
+            .then(res => {
+                if (res.data.code == 2000) {
+                    html = "";
+                    res.data.data.forEach(item => {
+                        html += "<option value=" + item.id + ">" + item.name + "</option>"
+                    })
+                    $('select[name=town_id]').html('')
+                    $('select[name=town_id]').html(html)
+                }
+            });
+    });
 });

@@ -1,6 +1,6 @@
 * {
     font-size: 13px;
-    font-weight: 300;
+    font-weight: 500;
 }
 
 html, body {
@@ -51,6 +51,10 @@ select {
 .bordered-hover {
     &:hover {
         border: 1px dotted #00218d;
+        //background-color: rgba(3, 224, 254, 0.03);
+        background-image: url("/images/price-bg.svg");
+        background-position: right bottom;
+        background-repeat: no-repeat;
     }
 }
 

@@ -7,6 +7,7 @@ use App\Http\Requests\Admin\UpdateCommunityRequest;
 use App\Models\Community;
 use App\Models\Region;
 use App\Services\CommunityService;
+use App\Services\RegionService;
 use DemeterChain\C;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -29,7 +30,7 @@ class CommunityController extends Controller
             $queryBuilder->where('name', 'like', '%' . $name . '%');
         }
 
-        $items = $queryBuilder->paginate();
+        $items = $queryBuilder->paginate(16);
 
         return view('community.index', compact('items'));
     }
@@ -40,7 +41,9 @@ class CommunityController extends Controller
      */
     public function create(Request $request)
     {
-        return view('community.create');
+        $cities = RegionService::cities(1);
+
+        return view('community.create', compact('cities'));
     }
 
     /**
@@ -51,8 +54,10 @@ class CommunityController extends Controller
     public function edit(Request $request, $id)
     {
         $item = Community::findOrFail($id);
+        $cities = RegionService::cities(1);
+        $towns = RegionService::towns($item->city_id);
 
-        return view('community.edit', compact('item'));
+        return view('community.edit', compact('item', 'cities', 'towns'));
     }
 
     /**

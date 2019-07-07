@@ -76,8 +76,8 @@
                                                                     <div class="form-group">
                                                                         <label>市<small class="text-danger">* 必选</small></label>
                                                                         <select name="city_id" class="select2 form-control select2-selection">
-                                                                            @foreach(['1' => '新人', '0' => '普通'] as $id => $name)
-                                                                                <option @if($id == old('city_id', $item->city_id)) selected @endif value="{{ $id }}">{{ $name }}</option>
+                                                                            @foreach($cities as $city)
+                                                                                <option @if($city->id == old('city_id', $item->city_id)) selected @endif value="{{ $city->id }}">{{ $city->name }}</option>
                                                                             @endforeach
                                                                         </select>
                                                                     </div>
@@ -86,8 +86,8 @@
                                                                     <div class="form-group">
                                                                         <label>区<small class="text-danger">* 必选</small></label>
                                                                         <select name="town_id" class="select2 form-control select2-selection">
-                                                                            @foreach(['1' => '新人', '0' => '普通'] as $id => $name)
-                                                                                <option @if($id == old('town_id', $item->town_id)) selected @endif value="{{ $id }}">{{ $name }}</option>
+                                                                            @foreach($towns as $town)
+                                                                                <option @if($town->id == old('city_id', $item->town_id)) selected @endif value="{{ $town->id }}">{{ $town->name }}</option>
                                                                             @endforeach
                                                                         </select>
                                                                     </div>
@@ -126,15 +126,6 @@
                                                                     <div class="form-group">
                                                                         <label>详细地址</label>
                                                                         <input class="form-control" type="text" name="address" placeholder="详细地址" value="{{ old('address', $item->address) }}" required>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="row">
-                                                                <div class="col">
-                                                                    <div class="form-group">
-                                                                        <label for="status">删除</label>
-                                                                        <input class="form-check" type="checkbox" name="status"
-                                                                               @if($item->deleted_at)checked @endif id="status">
                                                                     </div>
                                                                 </div>
                                                             </div>

@@ -75,8 +75,8 @@
                                                                     <div class="form-group">
                                                                         <label>市<small class="text-danger">* 必选</small></label>
                                                                         <select name="city_id" class="select2 form-control select2-selection">
-                                                                            @foreach(['1' => '新人', '0' => '普通'] as $id => $name)
-                                                                                <option @if($id == old('city_id')) selected @endif value="{{ $id }}">{{ $name }}</option>
+                                                                            @foreach($cities as $city)
+                                                                                <option @if($city->id == old('city_id')) selected @endif value="{{ $city->id }}">{{ $city->name }}</option>
                                                                             @endforeach
                                                                         </select>
                                                                     </div>
@@ -85,9 +85,7 @@
                                                                     <div class="form-group">
                                                                         <label>区<small class="text-danger">* 必选</small></label>
                                                                         <select name="town_id" class="select2 form-control select2-selection">
-                                                                            @foreach(['1' => '新人', '0' => '普通'] as $id => $name)
-                                                                                <option @if($id == old('town_id')) selected @endif value="{{ $id }}">{{ $name }}</option>
-                                                                            @endforeach
+
                                                                         </select>
                                                                     </div>
                                                                 </div>
