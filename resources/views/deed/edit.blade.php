@@ -67,11 +67,26 @@
                                                                 <div class="col">
                                                                     <div class="form-group">
                                                                         <div class="form-group">
-                                                                            <label>楼宇 <small class="text-danger">* 必填</small></label>
+                                                                            <label>小区 <small class="text-danger">* 必填</small></label>
+                                                                            <select name="community_id" class="form-control select2-single" id="">
+                                                                                <option value="0">请选择小区</option>
+                                                                                @foreach($communities as $com)
+                                                                                    <option @if($com->id == $item->community_id) selected @endif value="{{ $com->id }}">{{ $com->name }}</option>
+                                                                                @endforeach
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col">
+                                                                    <div class="form-group">
+                                                                        <div class="form-group">
+                                                                            <label>楼栋 <small class="text-danger">* 必填</small></label>
                                                                             <input class="form-control" type="text" name="floor" placeholder="楼宇" value="{{ old('floor', $item->floor) }}" required>
                                                                         </div>
                                                                     </div>
                                                                 </div>
+                                                            </div>
+                                                            <div class="row">
                                                                 <div class="col">
                                                                     <div class="form-group">
                                                                         <div class="form-group">

@@ -22,6 +22,7 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Admin'], function () {
     Route::group(['module' => 'deed'], function () {
         Route::resource('deed/batch', 'BatchDeedController');
         Route::get('deed/import', 'DeedController@import')->name('deed.import');
+        Route::get('deed/import/template', 'DeedController@template')->name('deed.template');
         Route::resource('deed', 'DeedController');
     });
 

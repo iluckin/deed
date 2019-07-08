@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Community;
 use App\Models\Deed;
-use App\Services\CommunityService;
-use App\Services\RegionService;
 use Illuminate\Http\Request;
+use App\Services\CommunityService;
+use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 
 /**
@@ -69,8 +68,9 @@ class DeedController extends Controller
     public function edit(Request $request, $id)
     {
         $item = Deed::with('community')->findOrFail($id);
+        $communities = CommunityService::selectItems();
 
-        return view('deed.edit', compact('item'));
+        return view('deed.edit', compact('item', 'communities'));
     }
 
     /**
@@ -96,9 +96,24 @@ class DeedController extends Controller
             'community_id' => 'required|numeric|min:1',
             'file' => 'required|mimes:xls,xlsx,xlsm,xltx,xltm'
         ]);
-        // 导入
 
-        return $request->all();
+        $file = $request->file('file');
+        if (! $file->isValid()) {
+            return back()->withInput($request->all())->withErrors('上传文件不合法!');
+        }
+        // 导入
+        $load = Excel::toCollection(null, $file);
+        $deeds = [];
+        $communityId = $request->input('community_id', 0);
+        foreach ($load->first() as $index => $item) {
+            if ($index <= 1) {
+                continue;
+            }
+
+            $deeds[] = [
+                'community_id' => $communityId,
+            ];
+        }
     }
 
     /**
@@ -140,5 +155,15 @@ class DeedController extends Controller
         $communities = CommunityService::selectItems();
 
         return view('deed.import', compact('communities'));
+    }
+
+    /**
+     * @return \Symfony\Component\HttpFoundation\BinaryFileResponse
+     */
+    public function template()
+    {
+        $file = storage_path('app/template.xls');
+
+        return response()->download($file, 'template.xls');
     }
 }

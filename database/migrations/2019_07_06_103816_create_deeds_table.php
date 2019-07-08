@@ -34,7 +34,8 @@ class CreateDeedsTable extends Migration
             $table->string('dispute', 400)->nullable()->comment('纠纷');
             $table->json('extra')->nullable();
             $table->text('remark')->nullable()->comment('备注');
-            $table->bigInteger('status')->default(0)->comment('办理状态 0 新录入 1 正在办理 2 待取证 3 办理完成');
+            $table->unsignedSmallInteger('status')->default(0)->comment('办理状态 0 新录入 1 待补全信息 2 正在办理 3 待取证 4 办理完成 5 取消办理');
+            $table->unsignedSmallInteger('sub_status')->default(0)->comment('子状态， 预留字段');
             $table->softDeletes();
             $table->timestamps();
         });

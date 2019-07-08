@@ -57,7 +57,7 @@
                                                         <div class="col mb-3">
                                                             <label>文件 <small class="text-danger">* 必选</small> &nbsp;&nbsp;&nbsp;
                                                                 <span class="text-primary">
-                                                                    <a href="#">下载导入模板</a>
+                                                                    <a target="_blank" href="{{ route('deed.template') }}">下载导入模板</a>
                                                                 </span>
                                                             </label>
                                                             <div class="mx-auto w-100 btn p-0 shadow-none" onclick="$('#upload').click()" style="width: 100%">
