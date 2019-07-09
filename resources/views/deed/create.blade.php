@@ -189,10 +189,10 @@
                                                             <div class="row">
                                                                 <div class="col">
                                                                     <div class="form-group">
-                                                                        <label>办理状态</label>
-                                                                        <select name="status" id="" class="form-control select2">
-                                                                            @foreach(['新录入', '正在办理', '待取证', '办理完成'] as $v => $name)
-                                                                                <option @if(old('status') == $v) selected @endif value="{{ $v }}">{{ $name }}</option>
+                                                                        <label>状态 <small class="text-danger">* 必选, 请仔细确认当前导入记录状态！</small></label>
+                                                                        <select name="status" class="select2 form-control select2-single">
+                                                                            @foreach(\App\Models\Deed::status() as $index => $value)
+                                                                                <option @if($index == old('status', request('status', 0))) selected @endif value="{{ $index }}">{{ $value }}</option>
                                                                             @endforeach
                                                                         </select>
                                                                     </div>

@@ -98,7 +98,7 @@
                                         <div class="row">
                                             <div class="col text-left">
                                                 <span class="badge badge-light text-primary">
-                                                    <i class="fa fa-product-hunt "></i> {{ ['新录入', '正在办理', '待取证', '办理完成'][$item->status] }}
+                                                    <i class="fa fa-product-hunt "></i> {{ \App\Models\Deed::status()[$item->status] }}
                                                 </span>
                                             </div>
                                         </div>

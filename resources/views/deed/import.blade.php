@@ -49,6 +49,16 @@
                                                                         </select>
                                                                     </div>
                                                                 </div>
+                                                                <div class="col">
+                                                                    <div class="form-group">
+                                                                        <label>状态 <small class="text-danger">* 必选, 请仔细确认当前导入记录状态！</small></label>
+                                                                        <select name="status" class="select2 form-control select2-single">
+                                                                            @foreach(\App\Models\Deed::status() as $index => $value)
+                                                                                <option @if($index == old('status', request('status', 0))) selected @endif value="{{ $index }}">{{ $value }}</option>
+                                                                            @endforeach
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>

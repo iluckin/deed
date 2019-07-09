@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Deed;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Services\CommunityService;
 use Maatwebsite\Excel\Facades\Excel;
@@ -103,6 +104,10 @@ class DeedController extends Controller
         }
         // 导入
         $load = Excel::toCollection(null, $file);
+        if (! $load->count()) {
+            return back()->withErrors('导入失败！请检查导入模板是否正确。');
+        }
+
         $deeds = [];
         $communityId = $request->input('community_id', 0);
         foreach ($load->first() as $index => $item) {
@@ -110,10 +115,27 @@ class DeedController extends Controller
                 continue;
             }
 
+            list($floor, $unit, $room) = explode('-', $item[0], 3);
+            $contractDate = null; // $item[6]
+            $deliverDate = null; // $item[8]
             $deeds[] = [
-                'community_id' => $communityId,
+                'community_id' => $communityId, 'floor' => $floor, 'unit' => $unit,
+                'room' => $room, 'client_name' => $item[1] ?? null, 'identity_no' => $item[2] ?? null,
+                'contract_no' => $item[3] ?? null, 'acreage' => $item[4] ?? null, 'contract_price' => $item[5] ?? null,
+                'contract_date' => $contractDate, 'deliver_date' => $deliverDate, 'status' => $request->input('status', 0),
+                'mobile' => $item[9] ?? null, 'change_owner' => $item[10] ?? null, 'dispute' => $item[11] ?? null,
+                'created_at' => $now = Carbon::now('PRC')->toDateTimeString(), 'updated_at' => $now,
             ];
         }
+
+        try {
+            Deed::insert($deeds);
+            return back()->withErrors('操作成功！共导入' . count($deeds) . '条记录.');
+        } catch (\Exception $exception) {
+            info(__METHOD__, [$exception->getCode() => $exception->getMessage()]);
+        }
+
+        return back()->withErrors('导入失败， 请检导入模板或数据格式！');
     }
 
     /**
