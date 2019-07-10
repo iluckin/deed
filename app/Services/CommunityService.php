@@ -26,15 +26,15 @@ class CommunityService extends Service
      */
     public static function selectItems()
     {
-        if ($items = Cache::get($key = static::CACHE_PREIFX . date('Ymd'))) {
-            return $items;
-        }
+//        if ($items = Cache::get($key = static::CACHE_PREIFX . date('Ymd'))) {
+//            return $items;
+//        }
 
         if (! $items = Community::get(['id', 'name'])) {
             return [];
         }
 
-        Cache::put($key, $items, 60 * 60 * 24);
+//        Cache::put($key, $items, 60 * 60 * 24);
 
         return $items;
     }
