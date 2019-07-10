@@ -9,7 +9,13 @@
                 </div>
 
                 <div class="card-body">
-
+                    <div class="row">
+                        <div class="col">
+                            <div class="alert alert-warning">
+                                <p>近期开放, 请耐心等待...</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

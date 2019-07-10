@@ -65,6 +65,12 @@
         <div class="e-navlist my-2">
             <ul class="nav">
                 <li class="nav-item">
+                    <a class="nav-link px-2 text-center {{ sideBarActive('home') }}"  href="{{ route('home') }}">
+                        <i class="fa fa-2x fa-fw fa-home my-2"></i><br>
+                        <span>首页</span>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link px-2 text-center {{ sideBarActive('deed') }}"  href="{{ route('deed.index') }}">
                         <i class="fa fa-2x fa-fw fa-address-card-o my-2"></i><br>
                         <span>产权</span>

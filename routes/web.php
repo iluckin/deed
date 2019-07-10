@@ -13,7 +13,7 @@
 Auth::routes();
 
 Route::group(['middleware' => 'auth', 'namespace' => 'Admin'], function () {
-    Route::get('/', 'HomeController@index')->name('home');
+    Route::get('/', ['uses' => 'HomeController@index', 'module' => 'home', 'as' => 'home']);
 
     Route::group(['module' => 'community'], function () {
         Route::resource('community', 'CommunityController');

@@ -116,8 +116,8 @@ class DeedController extends Controller
             }
 
             list($floor, $unit, $room) = explode('-', $item[0], 3);
-            $contractDate = null; // $item[6]
-            $deliverDate = null; // $item[8]
+            $contractDate = trim($item[6] ?? '') ? Carbon::createFromFormat('Y-m-d', $item[6], 'PRC')->format('Y-m-d') : null; // $item[6]
+            $deliverDate = trim($item[8] ?? '') ? Carbon::createFromFormat('Y-m-d', $item[8], 'PRC')->format('Y-m-d') : null; // $item[8]
             $deeds[] = [
                 'community_id' => $communityId, 'floor' => $floor, 'unit' => $unit,
                 'room' => $room, 'client_name' => $item[1] ?? null, 'identity_no' => $item[2] ?? null,

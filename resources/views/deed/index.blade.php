@@ -22,11 +22,21 @@
                     <div class="d-flex mb-3 tools-bar">
                         <div class="mr-3" style="flex-grow: 1">
                             <form class="form-inline">
-                                <div class="form-group w-auto mr-2">
+                                <div class="form-group w-25 mr-2">
                                     <div class="input-group w-100">
-                                        <select class="form-control select2" name="status" id="">
+                                        <select class="form-control select2 select2-single" name="community_id" id="">
+                                            <option value="-1">选择小区</option>
+                                            @foreach(\App\Services\CommunityService::selectItems() as $item)
+                                                <option {{ $item->id == request('community_id', '-1') ? 'selected' : '' }} value="{{ $item->id }}">{{ $item->name }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group w-25 mr-2">
+                                    <div class="input-group w-100">
+                                        <select class="form-control select2-single" name="status" id="">
                                             <option value="-1">状态</option>
-                                            @foreach(['新录入', '正在办理', '待取证', '办理完成'] as $id => $name)
+                                            @foreach(\App\Models\Deed::status() as $id => $name)
                                                 <option {{ $id == request('status', '-1') ? 'selected' : '' }} value="{{ $id }}">{{ $name }}</option>
                                             @endforeach
                                         </select>

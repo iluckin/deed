@@ -11,6 +11,7 @@ use App\Services\RegionService;
 use DemeterChain\C;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 
 /**
  * Class CommunityController
@@ -24,8 +25,11 @@ class CommunityController extends Controller
      */
     public function index(Request $request)
     {
-        $queryBuilder = Community::latest();
+        $queryBuilder = Community::latest()->leftJoin('deeds', 'deeds.community_id', '=',  'communities.id')
+            ->select(['communities.*', DB::raw('count(deeds.id) as deeds')])
+            ->groupBy('communities.id');
 
+        // select a.*, count(b.id) as item from `communities` a left join `deeds` b on b.`community_id` = a.id group by a.id
         if ($name = $request->input('search')) {
             $queryBuilder->where('name', 'like', '%' . $name . '%');
         }

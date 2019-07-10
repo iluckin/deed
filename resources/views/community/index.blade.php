@@ -61,7 +61,7 @@
                                                 <div class="card-title">
                                                     <h6 class="mr-2">
                                                         <span class="text-dark">
-                                                            <a href="{{ route('community.show', $item->id) }}" class="text-dark font-weight-bold">
+                                                            <a href="javascript: alert('功能暂未开放..')" class="text-dark font-weight-bold">
                                                                 {{ $item->name }}
                                                             </a>
                                                         </span>
@@ -83,7 +83,7 @@
                                         <div class="row">
                                             <div class="col text-left">
                                                 <span class="badge badge-light">
-                                                    <i class="fa fa-certificate"></i> 10 产权记录
+                                                    <i class="fa fa-certificate"></i> {{ $item->deeds }} 产权记录
                                                 </span>
                                             </div>
                                         </div>

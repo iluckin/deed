@@ -229,25 +229,32 @@ $(() => {
 
     page.createChart(users, labels, [
         {
-            label: '苹果',
+            label: '新录入',
             borderWidth: 1,
-            backgroundColor: 'rgba(17, 72, 211, 1)',
+            backgroundColor: 'rgb(5,21,59)',
             pointRadius: 5,
-            data: [1113, 12, 3, 1120, 678, 932, 122]
+            data: [113, 1200, 3, 120, 678, 932, 122]
         },
         {
-            label: '安卓',
+            label: '待办理',
             borderWidth: 1,
-            backgroundColor: 'rgba(87, 228, 198, 0.6)',
+            backgroundColor: 'rgba(6,171,228,0.6)',
             pointRadius: 5,
-            data: [3, 112, 1113, 12, 56, 78, 44, 56]
+            data: [3, 112, 1113, 1002, 56, 78, 44, 56]
         },
         {
-            label: 'WAP',
+            label: '正在办理',
             borderWidth: 1,
-            backgroundColor: 'rgba(87, 28, 198, 0.6)',
+            backgroundColor: 'rgba(13,198,54,0.6)',
             pointRadius: 5,
-            data: [3, 12, 83, 12, 90, 88, 9999, 10345]
+            data: [3, 12, 83, 512, 90, 88, 699, 1345]
+        },
+        {
+            label: '办理完成',
+            borderWidth: 1,
+            backgroundColor: 'rgb(0,46,209)',
+            pointRadius: 5,
+            data: [1343, 120, 5830, 1209, 1190, 88, 6999, 10345]
         }
     ]);
     page.createChart(orders, labels, [
@@ -260,11 +267,11 @@ $(() => {
         }
     ]);
     page.createChart(vip, labels, [{
-        label: '会员',
+        label: '用户查询统计',
         borderWidth: 1,
         backgroundColor: 'rgba(17, 72, 211, 1)',
         pointRadius: 5,
-        data: [2013, 12, 13, 112, 99, 899, 1024]
+        data: [2013, 12, 1300, 112, 99, 1899, 1024]
     }]);
 
     $(".loading").click(function(){
