@@ -1,5 +1,4 @@
-@extends('layouts.app')
-
+@extends('auth-bak.master')
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -10,7 +9,7 @@
                 <div class="card-body">
                     @if (session('resent'))
                         <div class="alert alert-success" role="alert">
-                            <i class="fa fa-check-circle-o"></i> {{ __('A fresh verification link has been sent to your email address.') }}
+                            {{ __('A fresh verification link has been sent to your email address.') }}
                         </div>
                     @endif
 
