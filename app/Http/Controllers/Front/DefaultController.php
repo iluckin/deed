@@ -19,6 +19,6 @@ class DefaultController extends Controller
      */
     public function index(Request $request)
     {
-        return view('front.home');
+        return view('front.services.index');
     }
 }
