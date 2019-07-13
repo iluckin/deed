@@ -37,6 +37,6 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Admin'], function () {
 
 // 产权查询也没
 Route::group(['prefix' => 'service/someone', 'namespace' => 'Front'], function () {
-    Route::get('index', 'DefaultController@index');
-    Route::get('deed', 'DefaultController@index');
+    Route::get('index', 'DefaultController@index')->name('service.someone.index');
+    Route::get('deed', 'DefaultController@deed')->name('service.someone.deed');;
 });

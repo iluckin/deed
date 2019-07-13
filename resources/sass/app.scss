@@ -130,7 +130,7 @@ main {
 .banner-box {
     border-radius: 3px !important;
     overflow: hidden;
-    height: 120px;
+    height: 110px;
 }
 .carousel-indicators {
     bottom: -7px;
@@ -144,4 +144,16 @@ main {
 .service-avatar {
     width: 45px;
     height: 45px;
+}
+.gray-line {
+    width: 110%;
+    height: 8px;
+    background-color: #f7f7f7;
+    display: block;
+    //border: 1px solid red;
+}
+.title {
+    display: inline-block;
+    font-weight: bold;
+    font-size: 1.30rem;
 }

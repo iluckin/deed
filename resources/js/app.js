@@ -311,4 +311,37 @@ $(() => {
     $('input[name=file]').change(e => {
         $('.filename').text($('input[name=file]').val());
     });
+
+    $('.deed-query').click(function () {
+        var floor = $('input[name=floor]').val();
+        var unit = $('input[name=unit]').val();
+        var room = $('input[name=room]').val();
+        var community = $('select[name=community]').val();
+
+        url = "/api/query?floor=" + floor + "&unit=" + unit +
+            "&room=" + room + '&community=' + community;
+        axios.get(url)
+            .then(res => {
+                if (res.data.code != 2000) {
+                    $('.alert-message').show();
+                    m = res.data.msg;
+                    if (m = 'Too Many Attempts.') {
+                        m = '您操作太频繁，请守候再重试！';
+                    }
+                    $('.message').text(res.data.msg);
+                    $('.result-message-box').hide();
+                    return;
+                }
+                $('.alert-message').hide();
+
+                $('.result-message').text(res.data.data.result);
+                $('.result-message-box').show();
+            })
+            .catch(err => {
+                $('.alert-message').show();
+                $('.message').text('操作太频繁，请守候再重试！');
+                $('.result-message-box').hide();
+                return;
+            });
+    });
 });

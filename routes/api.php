@@ -14,6 +14,6 @@ use Illuminate\Http\Request;
 */
 
 Route::group(['namespace' => 'Api', 'middleware' => 'throttle:120,1'], function () {
-    Route::get('query',             'DefaultController@index');         // 查询
+    Route::get('query',             'DefaultController@deedQuery');         // 查询
     Route::get('communities',       'DefaultController@communities');   // 小区选择
 });
