@@ -16,6 +16,7 @@ class CreateDeedsTable extends Migration
         Schema::create('deeds', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('community_id')->nullable()->index()->comment('小区');
+            $table->integer('batch')->nullable()->default(1)->comment('期号');
             $table->string('floor')->nullable()->comment('楼宇');
             $table->string('unit')->nullable()->comment('单元');
             $table->string('room')->nullable()->comment('房间');

@@ -2,20 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b27a8325-7dd0-47a7-a72c-f13fb0ef9cf1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/front/services/deed.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/DefaultController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Front/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Front/DefaultController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/app.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Console/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/DeedController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/DeedController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_07_06_103752_create_deed_batches_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_07_06_103816_create_deeds_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_07_06_103816_create_deeds_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/deed/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/deed/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/front/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/front/services/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/services/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -33,87 +25,20 @@
     <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.8">
-      <split-first>
-        <splitter split-orientation="horizontal" split-proportion="0.7052947">
-          <split-first>
-            <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-              <file pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/routes/web.php">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="950">
-                      <caret line="40" column="46" selection-start-line="40" selection-start-column="46" selection-end-line="40" selection-end-column="46" />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file pinned="false" current-in-tab="true">
-                <entry file="file://$PROJECT_DIR$/resources/js/app.js">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="919">
-                      <caret line="342" column="48" selection-start-line="342" selection-start-column="48" selection-end-line="342" selection-end-column="48" />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/routes/api.php">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="576">
-                      <caret line="16" column="64" selection-start-line="16" selection-start-column="55" selection-end-line="16" selection-end-column="64" />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/DefaultController.php">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="627">
-                      <caret line="72" column="108" selection-start-line="72" selection-start-column="108" selection-end-line="72" selection-end-column="108" />
-                      <folding>
-                        <element signature="e#44#64#0#PHP" expanded="true" />
-                      </folding>
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-            </leaf>
-          </split-first>
-          <split-second>
-            <leaf>
-              <file pinned="false" current-in-tab="true">
-                <entry file="file://$PROJECT_DIR$/resources/views/front/services/deed.blade.php">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="739">
-                      <caret line="108" column="94" selection-start-line="108" selection-start-column="94" selection-end-line="108" selection-end-column="94" />
-                      <folding>
-                        <element signature="e#5058#5079#0#HTML" expanded="true" />
-                        <element signature="e#5721#5742#0#HTML" expanded="true" />
-                        <element signature="e#5950#5956#0#HTML" expanded="true" />
-                        <element signature="e#5956#5962#0#HTML" expanded="true" />
-                      </folding>
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-            </leaf>
-          </split-second>
-        </splitter>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/resources/sass/app.scss">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="883">
-                  <caret line="153" column="1" selection-start-line="153" selection-start-column="1" selection-end-line="153" selection-end-column="1" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/DeedController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="831">
+              <caret line="128" column="9" lean-forward="true" selection-start-line="128" selection-start-column="9" selection-end-line="128" selection-end-column="9" />
+              <folding>
+                <element signature="e#46#66#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -121,8 +46,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/views/front/home.blade.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_07_06_103752_create_deed_batches_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_07_06_111935_create_regions_table.php" />
         <option value="$PROJECT_DIR$/resources/views/auth/login.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/auth/passwords/reset.blade.php" />
@@ -145,14 +68,12 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/RegionController.php" />
         <option value="$PROJECT_DIR$/resources/sass/_global.scss" />
         <option value="$PROJECT_DIR$/resources/views/community/edit.blade.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_07_06_103816_create_deeds_table.php" />
         <option value="$PROJECT_DIR$/storage/app/.gitignore" />
         <option value="$PROJECT_DIR$/config/app.php" />
         <option value="$PROJECT_DIR$/app/Models/Deed.php" />
         <option value="$PROJECT_DIR$/resources/views/deed/edit.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/deed/import.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/CommunityController.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/DeedController.php" />
         <option value="$PROJECT_DIR$/resources/views/deed/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/app.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/home.blade.php" />
@@ -166,12 +87,16 @@
         <option value="$PROJECT_DIR$/resources/sass/app.scss" />
         <option value="$PROJECT_DIR$/resources/views/front/services/index.blade.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
-        <option value="$PROJECT_DIR$/resources/views/deed/create.blade.php" />
         <option value="$PROJECT_DIR$/routes/api.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Front/DefaultController.php" />
         <option value="$PROJECT_DIR$/resources/views/front/services/deed.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/DefaultController.php" />
         <option value="$PROJECT_DIR$/resources/js/app.js" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_07_06_103816_create_deeds_table.php" />
+        <option value="$PROJECT_DIR$/app/Console/Kernel.php" />
+        <option value="$PROJECT_DIR$/app/Console/Commands/AdminCreator.php" />
+        <option value="$PROJECT_DIR$/resources/views/deed/create.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/DeedController.php" />
       </list>
     </option>
   </component>
@@ -284,7 +209,7 @@
       <path value="$PROJECT_DIR$/vendor/qiniu/php-sdk" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" fullScreen="true">
     <option name="width" value="2560" />
     <option name="height" value="1440" />
   </component>
@@ -296,8 +221,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -329,7 +252,7 @@
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="Http" type="462c0819:PsiDirectoryNode" />
               <item name="Controllers" type="462c0819:PsiDirectoryNode" />
-              <item name="Api" type="462c0819:PsiDirectoryNode" />
+              <item name="Admin" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="deed" type="b2602c69:ProjectViewProjectNode" />
@@ -337,17 +260,32 @@
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="Http" type="462c0819:PsiDirectoryNode" />
               <item name="Controllers" type="462c0819:PsiDirectoryNode" />
-              <item name="Front" type="462c0819:PsiDirectoryNode" />
+              <item name="Auth" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="deed" type="b2602c69:ProjectViewProjectNode" />
               <item name="deed" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="deed" type="b2602c69:ProjectViewProjectNode" />
+              <item name="deed" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="deed" type="b2602c69:ProjectViewProjectNode" />
+              <item name="deed" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="deed" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -409,17 +347,18 @@
       <workItem from="1562766186184" duration="5094000" />
       <workItem from="1562852618523" duration="4840000" />
       <workItem from="1562984787863" duration="9016000" />
+      <workItem from="1563801859520" duration="1684000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="60627000" />
+    <option name="totallyTimeSpent" value="62311000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="2560" height="1337" extended-state="0" />
+    <frame x="0" y="0" width="2560" height="1440" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.15535145" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16413738" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -453,16 +392,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/views/components/validate-message.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="2" column="30" lean-forward="true" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/components/no-result.blade.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Requests/Admin/UpdateCommunityRequest.php">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -546,16 +475,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="913">
           <caret line="95" column="70" selection-start-line="95" selection-start-column="70" selection-end-line="95" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_07_06_103816_create_deeds_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1000">
-          <caret line="41" column="5" lean-forward="true" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
-          <folding>
-            <element signature="e#7#45#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -721,25 +640,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/DeedController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="58" column="48" selection-start-line="58" selection-start-column="48" selection-end-line="58" selection-end-column="48" />
-          <folding>
-            <element signature="e#46#66#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/images/avatar.png">
       <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/sass/app.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="883">
-          <caret line="153" column="1" selection-start-line="153" selection-start-column="1" selection-end-line="153" selection-end-column="1" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/front/services/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -755,31 +657,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/deed/create.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="810">
-          <caret line="211" column="106" lean-forward="true" selection-start-line="201" selection-start-column="100" selection-end-line="211" selection-end-column="106" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="950">
-          <caret line="40" column="46" selection-start-line="40" selection-start-column="46" selection-end-line="40" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Front/DefaultController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="950">
           <caret line="33" column="5" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/api.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="576">
-          <caret line="16" column="64" selection-start-line="16" selection-start-column="55" selection-end-line="16" selection-end-column="64" />
         </state>
       </provider>
     </entry>
@@ -795,14 +676,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/front/services/deed.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="739">
+        <state relative-caret-position="738">
           <caret line="108" column="94" selection-start-line="108" selection-start-column="94" selection-end-line="108" selection-end-column="94" />
-          <folding>
-            <element signature="e#5058#5079#0#HTML" expanded="true" />
-            <element signature="e#5721#5742#0#HTML" expanded="true" />
-            <element signature="e#5950#5956#0#HTML" expanded="true" />
-            <element signature="e#5956#5962#0#HTML" expanded="true" />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/sass/app.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="883">
+          <caret line="153" column="1" selection-start-line="153" selection-start-column="1" selection-end-line="153" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -816,10 +698,71 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/routes/api.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="576">
+          <caret line="16" column="64" selection-start-line="16" selection-start-column="55" selection-end-line="16" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="919">
-          <caret line="342" column="48" selection-start-line="342" selection-start-column="48" selection-end-line="342" selection-end-column="48" />
+        <state relative-caret-position="486">
+          <caret line="330" column="53" selection-start-line="330" selection-start-column="53" selection-end-line="330" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="950">
+          <caret line="40" column="46" selection-start-line="40" selection-start-column="46" selection-end-line="40" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_07_06_103816_create_deeds_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="433">
+          <caret line="22" column="70" lean-forward="true" selection-start-line="22" selection-start-column="70" selection-end-line="22" selection-end-column="70" />
+          <folding>
+            <element signature="e#7#45#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Console/Kernel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="16" column="27" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
+          <folding>
+            <element signature="e#31#69#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Console/Commands/AdminCreator.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="326">
+          <caret line="26" column="20" lean-forward="true" selection-start-line="26" selection-start-column="20" selection-end-line="26" selection-end-column="20" />
+          <folding>
+            <element signature="e#40#61#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/deed/create.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="924">
+          <caret line="205" column="70" selection-start-line="205" selection-start-column="70" selection-end-line="205" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/DeedController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="831">
+          <caret line="128" column="9" lean-forward="true" selection-start-line="128" selection-start-column="9" selection-end-line="128" selection-end-column="9" />
+          <folding>
+            <element signature="e#46#66#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

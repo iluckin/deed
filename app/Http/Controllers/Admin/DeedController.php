@@ -119,7 +119,7 @@ class DeedController extends Controller
             $contractDate = trim($item[6] ?? '') ? Carbon::createFromFormat('Y-m-d', $item[6], 'PRC')->format('Y-m-d') : null; // $item[6]
             $deliverDate = trim($item[8] ?? '') ? Carbon::createFromFormat('Y-m-d', $item[8], 'PRC')->format('Y-m-d') : null; // $item[8]
             $deeds[] = [
-                'community_id' => $communityId, 'floor' => $floor, 'unit' => $unit,
+                'community_id' => $communityId, 'floor' => $floor, 'unit' => $unit, 'batch' => $request->input('batch', 1),
                 'room' => $room, 'client_name' => $item[1] ?? null, 'identity_no' => $item[2] ?? null,
                 'contract_no' => $item[3] ?? null, 'acreage' => $item[4] ?? null, 'contract_price' => $item[5] ?? null,
                 'contract_date' => $contractDate, 'deliver_date' => $deliverDate, 'status' => $request->input('status', 0),
