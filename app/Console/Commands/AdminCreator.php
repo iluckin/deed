@@ -36,11 +36,13 @@ class AdminCreator extends Command
             if ($password) break;
         }
 
-        $admin = Admin::firstOrCreate([
-            'email' => $email, 'name' => '圆堂地产-' . mt_rand(1000, 9999)
-        ]);
+        if (Admin::where(['email' => $email])->exists()) {
+            return $this->error('account: ' . $email . ' exists.');
+        }
 
-        $admin->update(['password' => bcrypt($password)]);
+        $admin = Admin::create([
+            'email' => $email, 'name' => '圆堂地产-' . mt_rand(1000, 9999), 'password' => bcrypt($password)
+        ]);
 
         $this->info('Done! ');
     }

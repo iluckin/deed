@@ -21,7 +21,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 100px;
+    width: 90px;
     height: calc(100vh);
     background-repeat: no-repeat;
     background-position-x: center;
@@ -63,7 +63,7 @@
             //color: $white !important;
             background-image: url("../theme/images/active-bg.svg");
             background-repeat: no-repeat;
-            background-position-x: 92px;
+            background-position-x: 85px;
             background-position-y: center;
             background-size: 13%;
         }
@@ -77,7 +77,7 @@
 
 main {
     z-index: 9;
-    margin-left: 100px;
+    margin-left: 89px;
     padding-top: 80px !important;
 }
 

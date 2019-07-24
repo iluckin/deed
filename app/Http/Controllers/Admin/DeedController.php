@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Deed;
 use Carbon\Carbon;
+use App\Models\Deed;
 use Illuminate\Http\Request;
 use App\Services\CommunityService;
 use Maatwebsite\Excel\Facades\Excel;
@@ -20,24 +20,26 @@ class DeedController extends Controller
      */
     public function index(Request $request)
     {
-        $quryBuilder = Deed::with('community')->latest()->oldest('status');
+        $queryBuilder = Deed::with('community')
+            ->house()
+            ->latest()->oldest('status');
 
         if ($search = $request->input('search')) {
             if (is_numeric($search) && strlen($search) == 11) {
-                $quryBuilder->where(['mobile' => $search]);
+                $queryBuilder->where(['mobile' => $search]);
             }
             else {
-                $quryBuilder->where('client_name', 'like', '%' . $search . '%');
+                $queryBuilder->where('client_name', 'like', '%' . $search . '%');
             }
         }
 
         if ($status = $request->input('status')) {
             if ($status != '-1') {
-                $quryBuilder->where('status', $status);
+                $queryBuilder->where('status', $status);
             }
         }
 
-        $items = $quryBuilder->paginate(16)->appends($request->all());
+        $items = $queryBuilder->paginate(16)->appends($request->all());
 
         return view('deed.index', compact('items'));
     }

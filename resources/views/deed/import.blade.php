@@ -5,14 +5,14 @@
         <div class="col-12">
             <div class="card border-0">
                 <div class="card-header bg-none border-0">
-                    <span class="display-5 text-primary">产权信息管理</span>
+                    <span class="display-5 text-primary">住宅产权信息管理</span>
                 </div>
 
                 <div class="card-body">
                     <div class="row">
                         <div class="col">
                             <p class="font-weight-bold text-primary">
-                                <i class="fa fa-bookmark"></i> 导入产权信息
+                                <i class="fa fa-bookmark"></i> 住宅产权信息导入
                             </p>
                         </div>
                     </div>
@@ -20,12 +20,21 @@
                     <div class="row">
                         <div class="col mb-3">
                             <div class="card">
+                                <div class="card-header bg-none">
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="alert alert-danger">
+                                                <i class="fa fa-warning"></i> 您当前操作为导入住宅产权信息. 请仔细确认导入信息。
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="card-body">
                                     <div class="e-profile">
                                         <ul class="nav nav-tabs">
                                             <li class="nav-item">
                                                 <a class="active nav-link">
-                                                    <span class="text-dark">基本信息</span>
+                                                    <span class="text-dark">住宅产权基本信息</span>
                                                 </a>
                                             </li>
                                         </ul>
@@ -51,12 +60,34 @@
                                                                 </div>
                                                                 <div class="col">
                                                                     <div class="form-group">
+                                                                        <label>期号 <small class="text-danger">* 必选</small></label>
+                                                                        <select name="batch" class="select2 form-control select2-single">
+                                                                            @foreach(\App\Models\Community::getBatch() as $index => $value)
+                                                                                <option @if($value == old('batch', request('status', 1))) selected @endif value="{{ $value }}">{{ $value }} 期</option>
+                                                                            @endforeach
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col text-dark">
+                                                            <div class="row">
+                                                                <div class="col">
+                                                                    <div class="form-group">
                                                                         <label>状态 <small class="text-danger">* 必选, 请仔细确认当前导入记录状态！</small></label>
                                                                         <select name="status" class="select2 form-control select2-single">
                                                                             @foreach(\App\Models\Deed::status() as $index => $value)
-                                                                                <option @if($index == old('status', request('status', 0))) selected @endif value="{{ $index }}">{{ $value }}</option>
+                                                                            <option @if($index == old('status', request('status', 0))) selected @endif value="{{ $index }}">{{ $value }}</option>
                                                                             @endforeach
                                                                         </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col">
+                                                                    <div class="form-group">
+                                                                        <label>备注 <small class="text-danger"></small></label>
+                                                                        <input type="text" class="form-control" name="remark" placeholder="备注">
                                                                     </div>
                                                                 </div>
                                                             </div>

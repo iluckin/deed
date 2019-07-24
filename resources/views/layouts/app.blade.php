@@ -59,7 +59,7 @@
     <div class="sidebar">
         <div class="navbar-brand d-none d-md-block text-center mt-3 mx-3">
             <a class="e-logo text-center" href="{{ route('home') }}">
-                <span class="e-logo-text">产权办理 <small class="ml-1 mt-2">Ver 0.0.1</small></span>
+                <span class="e-logo-text">圆堂科技 <small class="ml-1 mt-2 text-white-50">Ver 1.0</small></span>
             </a>
         </div>
         <div class="e-navlist my-2">
@@ -80,6 +80,18 @@
                     <a class="nav-link px-2 text-center {{ sideBarActive('community') }}" href="{{ route('community.index') }}">
                         <i class="fa fa-2x fa-fw fa-fort-awesome my-2"></i><br>
                         <span>小区</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link px-2 text-center {{ sideBarActive('help') }}" href="{{ route('help.index') }}">
+                        <i class="fa fa-2x fa-fw fa-file-text-o my-2"></i><br>
+                        <span>内容</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link px-2 text-center {{ sideBarActive('help') }}" href="{{ route('help.index') }}">
+                        <i class="fa fa-2x fa-fw fa-cogs my-2"></i><br>
+                        <span>系统</span>
                     </a>
                 </li>
                 <li class="nav-item">

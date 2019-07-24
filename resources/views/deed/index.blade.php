@@ -7,12 +7,12 @@
                 <div class="card-header bg-none border-0">
                     <div class="row">
                         <div class="col-6 text-left">
-                            <span class="display-5 text-primary">产权信息管理</span>
+                            <span class="display-5 text-primary">住宅产权信息管理</span>
                         </div>
                         <div class="col-6 text-right">
                             <div class="btn-group">
-                                <a class="btn btn-sm btn-outline-light btn-group-active">产权信息</a>
-                                <a href="{{ route('batch.index') }}"  class="btn btn-sm btn-outline-light">批次</a>
+                                <a class="btn btn-sm btn-outline-light btn-group-active">住宅产权</a>
+                                <a href="{{ route('batch.index') }}"  class="btn btn-sm btn-outline-light">车位产权</a>
                             </div>
                         </div>
                     </div>
@@ -58,10 +58,10 @@
 
                         <div class="text-right pt-1" style="flex-grow: 1">
                             <a href="{{ route('deed.import') }}" class="d-inline-flex a-btn text-primary">
-                                <i class="fa fa-plus mr-1"></i> 导入
+                                <i class="fa fa-plus mr-1"></i> 住宅产权导入
                             </a> &nbsp;&nbsp;&nbsp;
                             <a href="{{ route('deed.create') }}" class="d-inline-flex a-btn text-primary">
-                                <i class="fa fa-plus mr-1"></i> 新增
+                                <i class="fa fa-plus mr-1"></i> 住宅产权新增
                             </a>
                         </div>
                     </div>
@@ -69,7 +69,7 @@
                     <div class="row">
                         <div class="col">
                             <p class="font-weight-bold text-primary">
-                                <i class="fa fa-list-ul"></i> 产权信息列表 ({{ $items->total() }})
+                                <i class="fa fa-list-ul"></i> 住宅产权信息列表 ({{ $items->total() }})
                             </p>
                         </div>
                     </div>

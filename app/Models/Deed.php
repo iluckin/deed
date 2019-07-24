@@ -27,15 +27,32 @@ class Deed extends Model
     }
 
     /**
+     * @param $query
+     */
+    public function scopeHouse($query)
+    {
+        $query->where('type', 0);
+    }
+
+    /**
+     * @param $query
+     */
+    public function scopeCar($query)
+    {
+        $query->where('type', 1);
+    }
+
+    /**
      * @return array
      */
     public static function status()
     {
+//         0 新录入 1 资料审核 2 税务审核 3 不动产审核 4 办理完成
         return [
             '0' => '新录入',
-            '1' => '已补全信息',
-            '2' => '正在办理',
-            '3' => '待取证',
+            '1' => '资料审核',
+            '2' => '税务审核',
+            '3' => '不动产审核',
             '4' => '办理完成',
             '5' => '取消办理',
         ];

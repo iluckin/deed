@@ -15,6 +15,7 @@ class CreateDeedsTable extends Migration
     {
         Schema::create('deeds', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->boolean('type')->default(0)->comment('0 住宅产权 1 车位产权');
             $table->bigInteger('community_id')->nullable()->index()->comment('小区');
             $table->integer('batch')->nullable()->default(1)->comment('期号');
             $table->string('floor')->nullable()->comment('楼宇');
@@ -35,7 +36,7 @@ class CreateDeedsTable extends Migration
             $table->string('dispute', 400)->nullable()->comment('纠纷');
             $table->json('extra')->nullable();
             $table->text('remark')->nullable()->comment('备注');
-            $table->unsignedSmallInteger('status')->default(0)->comment('办理状态 0 新录入 1 待补全信息 2 正在办理 3 待取证 4 办理完成 5 取消办理');
+            $table->unsignedSmallInteger('status')->default(0)->comment('办理状态 0 新录入 1 资料审核 2 税务审核 3 不动产审核 4 办理完成 5 取消办理');
             $table->unsignedSmallInteger('sub_status')->default(0)->comment('子状态， 预留字段');
             $table->softDeletes();
             $table->timestamps();
