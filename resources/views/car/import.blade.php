@@ -5,14 +5,14 @@
         <div class="col-12">
             <div class="card border-0">
                 <div class="card-header bg-none border-0">
-                    <span class="display-5 text-primary">住宅产权信息管理</span>
+                    <span class="display-5 text-primary">车位产权信息管理</span>
                 </div>
 
                 <div class="card-body">
                     <div class="row">
                         <div class="col">
                             <p class="font-weight-bold text-primary">
-                                <i class="fa fa-bookmark"></i> 住宅产权信息导入
+                                <i class="fa fa-bookmark"></i> 车位产权信息导入
                             </p>
                         </div>
                     </div>
@@ -24,7 +24,7 @@
                                     <div class="row">
                                         <div class="col">
                                             <div class="alert alert-success">
-                                                <i class="fa fa-warning"></i> 您当前操作为<b>导入住宅产权信息</b>. 请仔细确认导入信息。
+                                                <i class="fa fa-warning"></i> 您当前操作为<b>导入车位产权信息</b>. 请仔细确认导入信息。
                                             </div>
                                         </div>
                                     </div>
@@ -34,13 +34,13 @@
                                         <ul class="nav nav-tabs">
                                             <li class="nav-item">
                                                 <a class="active nav-link">
-                                                    <span class="text-dark">住宅产权基本信息</span>
+                                                    <span class="text-dark">车位产权基本信息</span>
                                                 </a>
                                             </li>
                                         </ul>
                                         <div class="tab-content pt-3">
                                             <div class="tab-pane active text-dark">
-                                                <form class="form" action="{{ route('deed.store') }}" novalidate="" name="create-category" enctype="multipart/form-data" method="post">
+                                                <form class="form" action="{{ route('car.store') }}" novalidate="" name="create-category" enctype="multipart/form-data" method="post">
                                                     @csrf
                                                     <input type="hidden" name="import" value="{{ csrf_token() }}">
                                                     <div class="row">
@@ -120,7 +120,7 @@
 
                                                         <div class="col d-flex justify-content-start">
                                                             <button class="btn btn-primary mr-2" type="submit">导入</button>
-                                                            <a class="btn btn-default" href="{{ route('deed.index') }}">返回</a>
+                                                            <a class="btn btn-default" href="{{ route('car.index') }}">返回</a>
                                                         </div>
                                                     </div>
                                                 </form>

@@ -13,7 +13,7 @@ use App\Http\Controllers\Controller;
  * Class DeedController
  * @package App\Http\Controllers\Admin
  */
-class DeedController extends Controller
+class CarController extends Controller
 {
     /**
      * @param Request $request
@@ -21,7 +21,7 @@ class DeedController extends Controller
     public function index(Request $request)
     {
         $queryBuilder = Deed::with('community')
-            ->house()
+            ->car()
             ->latest()->oldest('status');
 
         if ($search = $request->input('search')) {
@@ -41,7 +41,7 @@ class DeedController extends Controller
 
         $items = $queryBuilder->paginate(16)->appends($request->all());
 
-        return view('deed.index', compact('items'));
+        return view('car.index', compact('items'));
     }
 
     /**
@@ -50,7 +50,7 @@ class DeedController extends Controller
      */
     public function show(Request $request, $id)
     {
-        return view('deed.show');
+        return view('car.show');
     }
 
     /**
@@ -60,7 +60,7 @@ class DeedController extends Controller
     {
         $communities = CommunityService::selectItems();
 
-        return view('deed.create', compact('communities'));
+        return view('car.create', compact('communities'));
     }
 
     /**
@@ -73,7 +73,7 @@ class DeedController extends Controller
         $item = Deed::with('community')->findOrFail($id);
         $communities = CommunityService::selectItems();
 
-        return view('deed.edit', compact('item', 'communities'));
+        return view('car.edit', compact('item', 'communities'));
     }
 
     /**
@@ -122,7 +122,7 @@ class DeedController extends Controller
             $deliverDate = trim($item[8] ?? '') ? Carbon::createFromFormat('Y-m-d', $item[8], 'PRC')->format('Y-m-d') : null; // $item[8]
             $deeds[] = [
                 'community_id' => $communityId, 'floor' => $floor, 'unit' => $unit, 'batch' => $request->input('batch', 1),
-                'room' => $room, 'client_name' => $item[1] ?? null, 'identity_no' => $item[2] ?? null, 'type' => $request->input('type', 0),
+                'room' => $room, 'client_name' => $item[1] ?? null, 'identity_no' => $item[2] ?? null, 'type' => $request->input('type', 1),
                 'contract_no' => $item[3] ?? null, 'acreage' => $item[4] ?? null, 'contract_price' => $item[5] ?? null,
                 'contract_date' => $contractDate, 'deliver_date' => $deliverDate, 'status' => $request->input('status', 0),
                 'mobile' => $item[9] ?? null, 'change_owner' => $item[10] ?? null, 'dispute' => $item[11] ?? null,
@@ -176,7 +176,7 @@ class DeedController extends Controller
     {
         $communities = CommunityService::selectItems();
 
-        return view('deed.import', compact('communities'));
+        return view('car.import', compact('communities'));
     }
 
     /**
@@ -184,8 +184,8 @@ class DeedController extends Controller
      */
     public function template()
     {
-        $file = storage_path('app/template.xls');
+        $file = storage_path('app/template_car.xls');
 
-        return response()->download($file, 'template.xls');
+        return response()->download($file, 'template_car.xls');
     }
 }

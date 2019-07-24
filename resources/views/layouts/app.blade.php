@@ -83,7 +83,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link px-2 text-center {{ sideBarActive('help') }}" href="{{ route('help.index') }}">
+                    <a class="nav-link px-2 text-center {{ sideBarActive('cms') }}" href="{{ route('article.index') }}">
                         <i class="fa fa-2x fa-fw fa-file-text-o my-2"></i><br>
                         <span>内容</span>
                     </a>

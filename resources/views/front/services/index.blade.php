@@ -55,6 +55,14 @@
                     </div>
                 </a>
             </div>
+            <div class="col-4 px-0 mx-2 shadow-sm">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title"><i class="fa fa-yelp text-dark"></i></h5>
+                        <a href="https://dache.meituan.com/ent/dache/home?channelId=203&qcs_channel=121003">测试链接</a>
+                    </div>
+                </div>
+            </div>
             <div class="col-4 px-0 mx-2 shadow-sm" onclick="alert('更多服务敬请期待！')">
                 <div class="card text-center">
                     <div class="card-body">

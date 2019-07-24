@@ -7,12 +7,12 @@
                 <div class="card-header bg-none border-0">
                     <div class="row">
                         <div class="col-6 text-left">
-                            <span class="display-5 text-primary">住宅产权信息管理</span>
+                            <span class="display-5 text-primary">车位产权信息管理</span>
                         </div>
                         <div class="col-6 text-right">
                             <div class="btn-group">
-                                <a class="btn btn-sm btn-outline-light btn-group-active">住宅产权</a>
-                                <a href="{{ route('car.index') }}"  class="btn btn-sm btn-outline-light">车位产权</a>
+                                <a href="{{ route('deed.index') }}"   class="btn btn-sm btn-outline-light">住宅产权</a>
+                                <a class="btn btn-sm btn-outline-light  btn-group-active">车位产权</a>
                             </div>
                         </div>
                     </div>
@@ -57,10 +57,10 @@
                         </div>
 
                         <div class="text-right pt-1" style="flex-grow: 1">
-                            <a href="{{ route('deed.import') }}" class="d-inline-flex a-btn text-primary">
+                            <a href="{{ route('car.import') }}" class="d-inline-flex a-btn text-primary">
                                 <i class="fa fa-plus mr-1"></i> 导入
                             </a> &nbsp;&nbsp;&nbsp;
-                            <a href="{{ route('deed.create') }}" class="d-inline-flex a-btn text-primary">
+                            <a href="{{ route('car.create') }}" class="d-inline-flex a-btn text-primary">
                                 <i class="fa fa-plus mr-1"></i> 新增
                             </a>
                         </div>
@@ -69,7 +69,7 @@
                     <div class="row">
                         <div class="col">
                             <p class="font-weight-bold text-primary">
-                                <i class="fa fa-list-ul"></i> 住宅产权信息列表 ({{ $items->total() }})
+                                <i class="fa fa-list-ul"></i> 车位产权信息列表 ({{ $items->total() }})
                             </p>
                         </div>
                     </div>
@@ -85,20 +85,20 @@
                                                 <div class="card-title">
                                                     <h6 class="mr-2">
                                                         <span class="text-dark">
-                                                            <a href="{{ route('deed.edit', $item->id) }}" class="text-dark font-weight-bold">
+                                                            <a href="{{ route('car.edit', $item->id) }}" class="text-dark font-weight-bold">
                                                                {{ $item->community->name ?? '--' }}{{ $item->batch }}期
                                                             </a>
                                                         </span>
                                                         <br>
                                                         <br>
-                                                        <div class="">
-                                                            ID: {{ implode('-', [$item->floor, $item->unit, $item->room]) }} <br>
+                                                        <small class="">
+                                                            {{ $item->floor }}号楼{{ $item->unit }}层{{ $item->room }}号 <br>
                                                             客户: {{ $item->client_name }} <br>
                                                             电话: {{ $item->mobile }}
-                                                        </div>
+                                                        </small>
                                                     </h6>
                                                     <span class="pull-right classes-list-box-tools" style="height: 10px;">
-                                                        <a href="{{ route('deed.edit', $item->id) }}"><i class="fa fa-fw fa-edit text-dark" title="编辑"></i></a>
+                                                        <a href="{{ route('car.edit', $item->id) }}"><i class="fa fa-fw fa-edit text-dark" title="编辑"></i></a>
                                                     </span>
                                                 </div>
                                             </div>

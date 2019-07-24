@@ -12,7 +12,7 @@
                     <div class="row">
                         <div class="col">
                             <p class="font-weight-bold text-primary">
-                                <i class="fa fa-bookmark"></i> 新增住宅产权信息
+                                <i class="fa fa-bookmark"></i> 新增车位产权信息
                             </p>
                         </div>
                     </div>
@@ -25,15 +25,15 @@
                                         <ul class="nav nav-tabs">
                                             <li class="nav-item">
                                                 <a class="active nav-link">
-                                                    <span class="text-dark">住宅产权信息</span>
+                                                    <span class="text-dark">车位产权信息</span>
                                                 </a>
                                             </li>
                                         </ul>
                                         <div class="tab-content pt-3">
                                             <div class="tab-pane active text-dark">
-                                                <form class="form" action="{{ route('deed.store') }}" novalidate="" name="create-category" enctype="multipart/form-data" method="post">
+                                                <form class="form" action="{{ route('car.store') }}" novalidate="" name="create-category" enctype="multipart/form-data" method="post">
                                                     @csrf
-                                                    <input type="hidden" name="type" value="0">
+                                                    <input type="hidden" name="type" value="1">
                                                     <div class="row">
                                                         <input type="file" accept="image/gif, image/jpeg, image/png, image/jpg"  name="cover" id="classes-cover" style="width: 0; height: 0; padding: 0 !important; margin: 0 !important;">
                                                         <div class="col text-dark">
@@ -74,8 +74,8 @@
                                                                 <div class="col">
                                                                     <div class="form-group">
                                                                         <div class="form-group">
-                                                                            <label>单元 <small class="text-danger">* 必填</small></label>
-                                                                            <input class="form-control" type="text" name="unit" placeholder="单元" value="{{ old('unit') }}" required>
+                                                                            <label>楼层 <small class="text-danger">* 必填</small></label>
+                                                                            <input class="form-control" type="text" name="unit" placeholder="楼层" value="{{ old('unit') }}" required>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -85,8 +85,8 @@
                                                                 <div class="col">
                                                                     <div class="form-group">
                                                                         <div class="form-group">
-                                                                            <label>房间 <small class="text-danger">* 必填</small></label>
-                                                                            <input class="form-control" type="text" name="room" placeholder="房间" value="{{ old('room') }}" required>
+                                                                            <label>车位号 <small class="text-danger">* 必填</small></label>
+                                                                            <input class="form-control" type="text" name="room" placeholder="车位号" value="{{ old('room') }}" required>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -123,8 +123,8 @@
                                                                 <div class="col">
                                                                     <div class="form-group">
                                                                         <div class="form-group">
-                                                                            <label>实际房款 <small class="text-danger"></small></label>
-                                                                            <input class="form-control" type="number" name="actual_price" placeholder="实际房款" value="{{ old('actual_price') }}" required>
+                                                                            <label>实际款项 <small class="text-dark"></small>实际车位价格</label>
+                                                                            <input class="form-control" type="number" name="actual_price" placeholder="实际款项" value="{{ old('actual_price') }}" required>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -227,7 +227,7 @@
                                                     <div class="row">
                                                         <div class="col d-flex justify-content-start">
                                                             <button class="btn btn-primary mr-2" type="submit">保存</button>
-                                                            <a class="btn btn-default" href="{{ route('deed.index') }}">返回</a>
+                                                            <a class="btn btn-default" href="{{ route('car.index') }}">返回</a>
                                                         </div>
                                                     </div>
                                                 </form>

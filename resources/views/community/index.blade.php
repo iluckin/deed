@@ -37,7 +37,7 @@
 
                         <div class="text-right pt-1" style="flex-grow: 1">
                             <a href="{{ route('community.create') }}" class="d-inline-flex a-btn text-primary">
-                                <i class="fa fa-plus mr-1"></i> 新增小区
+                                <i class="fa fa-plus mr-1"></i> 新增
                             </a>
                         </div>
                     </div>
