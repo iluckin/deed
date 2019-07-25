@@ -6,6 +6,7 @@ use App\Models\Banner;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class BannerController extends Controller
 {
@@ -55,14 +56,18 @@ class BannerController extends Controller
             'file' => 'required|image'
         ]);
 
-        $name = $name = uniqid('B') . '.' . $request->file('file')->getClientOriginalExtension();
-        $imagePath = 'images/banners/' . date('Ymd');
+        $name = uniqid('B') . '.' . $request->file('file')->getClientOriginalExtension();
+        $imagePath = 'images/banners/' . date('Ymd') . '/' . $name;
 
-        if (! $request->file('file')->move(public_path($imagePath), $name)) {
+        $disk = Storage::disk('qiniu');
+
+        if (! $disk->put($imagePath, file_get_contents($request->file('file')))) {
             return back()->withErrors('上传文件失败.');
         }
 
-        $newBanner = array_merge(['admin_id' => Auth::id(), 'image' => $imagePath . '/' . $name], $request->only(
+        $imageUrl =  $disk->getUrl($imagePath);
+
+        $newBanner = array_merge(['admin_id' => Auth::id(), 'image' => $imageUrl], $request->only(
             'title', 'link'
         ));
 
@@ -119,16 +124,16 @@ class BannerController extends Controller
         ));
 
         if ($request->hasFile('file')) {
-            $name = $name = uniqid('B') . '.' . $request->file('file')->getClientOriginalExtension();
-            $imagePath = 'images/banners/' . date('Ymd');
+            $name = uniqid('B') . '.' . $request->file('file')->getClientOriginalExtension();
+            $imagePath = 'images/banners/' . date('Ymd') . '/' . $name;
 
-            if (!$request->file('file')->move(public_path($imagePath), $name)) {
+            $disk = Storage::disk('qiniu');
+
+            if (! $disk->put($imagePath, file_get_contents($request->file('file')))) {
                 return back()->withErrors('上传文件失败.');
             }
 
-            @unlink(public_path($item->image));
-
-            $banner['image'] =  $imagePath . '/' . $name;
+            $banner['image'] =  $disk->getUrl($imagePath);
         }
 
         $item->update(array_merge($banner, [

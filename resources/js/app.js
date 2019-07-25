@@ -281,6 +281,10 @@ $(() => {
         });
     });
 
+    $('.popover-link').popover({
+        trigger: 'focus',
+        html: true
+    });
 
     // 菜品图标上传
     $('input[name=resource-min]').change(() => {

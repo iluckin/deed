@@ -83,7 +83,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-12">
-                                                <img src="{{ asset($item->image) }}" onerror="this.src='{{ asset('images/banners/item-4.png') }}'" class="embed-responsive spinner-border" style="max-height: 90px;">
+                                                <img src="{{ $item->image }}" onerror="this.src='{{ asset('images/banners/item-4.png') }}'" class="embed-responsive spinner-border" style="max-height: 90px;">
                                             </div>
                                         </div>
                                     </div>

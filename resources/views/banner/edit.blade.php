@@ -74,7 +74,7 @@
                                                                     <div class="mx-auto w-100 btn p-0 shadow-none" style="width: 100%">
                                                                         <div class="d-flex justify-content-center align-items-center border-1 rounded" style="height: 150px; border-style: dashed">
                                                                             <span class="text-dark">
-                                                                                <img src="{{ asset($item->image) }}" alt="" class="img-thumbnail" style="height: 150px">
+                                                                                <img src="{{ $item->image }}" alt="" class="img-thumbnail" style="height: 150px">
                                                                             </span>
                                                                         </div>
                                                                     </div>
