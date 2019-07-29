@@ -70,28 +70,29 @@
                         <span>首页</span>
                     </a>
                 </li>
-                <li class="nav-item popover-link" data-toggle="popover" data-placement="left" data-content='
-<ul class="list-group list-group-flush">
-  <li class="list-group-item">住宅产权</li>
-  <li class="list-group-item">车位产权</li>
-</ul>
-'>
-                    <a href="javascript: void 0" class="nav-link px-2 text-center {{ sideBarActive('deed') }}">
+                <li>
+                    <a href="{{ route('deed.index') }}" class="nav-link px-2 text-center {{ sideBarActive('deed') }}">
                         <i class="fa fa-2x fa-fw fa-address-card-o my-2"></i><br>
                         <span>产权</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link px-2 text-center {{ sideBarActive('community') }}" href="{{ route('community.index') }}">
-                        <i class="fa fa-2x fa-fw fa-fort-awesome my-2"></i><br>
-                        <span>小区</span>
-                    </a>
+                  <a class="nav-link px-2 text-center {{ sideBarActive('house') }}" href="{{ route('banner.index') }}">
+                    <i class="fa fa-2x fa-fw fa-hospital-o my-2"></i><br>
+                    <span>二手房</span>
+                  </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link px-2 text-center {{ sideBarActive('cms') }}" href="{{ route('article.index') }}">
-                        <i class="fa fa-2x fa-fw fa-file-text-o my-2"></i><br>
-                        <span>内容</span>
-                    </a>
+                  <a class="nav-link px-2 text-center {{ sideBarActive('community') }}" href="{{ route('community.index') }}">
+                    <i class="fa fa-2x fa-fw fa-fort-awesome my-2"></i><br>
+                    <span>小区</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link px-2 text-center {{ sideBarActive('cms') }}" href="{{ route('banner.index') }}">
+                    <i class="fa fa-2x fa-fw fa-file-text-o my-2"></i><br>
+                    <span>内容</span>
+                  </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link px-2 text-center {{ sideBarActive('help') }}" href="{{ route('help.index') }}">

@@ -11,8 +11,8 @@
                         </div>
                         <div class="col-6 text-right">
                             <div class="btn-group">
-                                <a href="{{ route('article.index') }}"  class="btn btn-sm btn-outline-light">文章管理</a>
-                                <a class="btn btn-sm btn-outline-light btn-group-active">轮播图管理</a>
+<!--                                <a href="{{ route('article.index') }}"  class="btn btn-sm btn-outline-light">文章管理</a>-->
+<!--                                <a class="btn btn-sm btn-outline-light btn-group-active">轮播图管理</a>-->
                             </div>
                         </div>
                     </div>

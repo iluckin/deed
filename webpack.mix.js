@@ -14,6 +14,10 @@ const mix = require('laravel-mix');
 mix.js('resources/js/app.js', 'public/js');
 mix.sass('resources/sass/app.scss', 'public/css', { precision : 5 });
 
+mix.js('resources/h5/js/app.js', 'public/h5/js');
+mix.sass('resources/h5/sass/app.scss', 'public/h5/css', { precision : 5 });
+mix.copyDirectory('resources/h5/images', 'public/h5/images');
+
 if (mix.inProduction()) {
     mix.version();
     mix.disableNotifications();

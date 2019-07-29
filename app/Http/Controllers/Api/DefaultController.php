@@ -91,4 +91,13 @@ class DefaultController extends Controller
     {
         return success(CommunityService::selectItems());
     }
+
+    /**
+     * @param Request $request
+     * @return array
+     */
+    public function banner(Request $request)
+    {
+        return $request->all();
+    }
 }
