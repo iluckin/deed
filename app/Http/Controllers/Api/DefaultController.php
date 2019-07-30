@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Models\Banner;
 use App\Models\Deed;
 use App\Services\CommunityService;
 use Illuminate\Http\Request;
@@ -96,8 +97,24 @@ class DefaultController extends Controller
      * @param Request $request
      * @return array
      */
-    public function banner(Request $request)
+    public function banners(Request $request)
     {
-        return $request->all();
+        $items = Banner::latest('top')
+            ->latest('created_at')
+            ->whereNotNull('published_at')
+            ->get();
+
+        return success($items);
+    }
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function notice(Request $request)
+    {
+        return success([
+            'notice' => "👏 圆堂产权办理查询系统正式上线啦～  🎁 金秋送爽喜迎佳节产品优惠大升级！"
+        ]);
     }
 }
