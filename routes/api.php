@@ -13,11 +13,6 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::group(['namespace' => 'Api', 'middleware' => 'throttle:120,1'], function () {
-    Route::get('query',             'DefaultController@deedQuery');         // 查询
-    Route::get('communities',       'DefaultController@communities');   // 小区选择
-    Route::get('notice',            'DefaultController@notice');         // 通知列表
-    Route::get('banner',            'DefaultController@banners');       // 轮播图
-    Route::get('houses',            'HouseController@index');
-    Route::get('houses/{id}',       'HouseController@show');
+Route::group(['prefix' => 'sys'], function () {
+    Route::get('init',          'DefaultController@init'); //   初始化
 });

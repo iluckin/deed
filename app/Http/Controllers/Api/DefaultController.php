@@ -4,7 +4,10 @@ namespace App\Http\Controllers\Api;
 
 use App\Models\Banner;
 use App\Models\Deed;
+use App\Services\CarouselImageService;
 use App\Services\CommunityService;
+use App\Services\NavBarService;
+use App\Services\NotificationService;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
@@ -15,6 +18,19 @@ use Illuminate\Support\Facades\Validator;
  */
 class DefaultController extends Controller
 {
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function init(Request $request)
+    {
+        return success([
+            'navBars' => NavBarService::bars(),
+            'carouselImages' => CarouselImageService::items(),
+            'notifications' => NotificationService::titles()
+        ]);
+    }
+
     /**
      * @param Request $request
      * @return array
