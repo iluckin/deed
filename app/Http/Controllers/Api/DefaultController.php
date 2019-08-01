@@ -64,7 +64,7 @@ class DefaultController extends Controller
         $where = array_merge($where, [
             'community_id' => $request->input('community'),
             'batch' => $request->input('batch', 1),
-            'type' => $request->input('type', 0) > 1 ? 2 : 0
+            'type' => $request->input('type', 0)
         ]);
 
         $result = Deed::where($where)
