@@ -17,8 +17,11 @@ class NotificationService extends Service
      */
     public static function titles()
     {
-        $items = Notice::latest()->pluck('title')->toArray();
+        $notice = '';
+        foreach (Notice::latest()->pluck('title')->toArray() as $index => $item) {
+            $notice .= '[' . ($index + 1) . '] ' . $item . '。 ';
+        }
 
-        return implode(' ', $items);
+        return  $notice;
     }
 }

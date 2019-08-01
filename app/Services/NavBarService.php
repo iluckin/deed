@@ -16,6 +16,16 @@ class NavBarService extends Service
      */
     public static function bars($cache = true)
     {
-        return Menu::latest()->get()->groupBy('category');
+        $bars = Menu::latest()->get()->groupBy('category');
+        $items = [];
+
+        foreach ($bars as $cate => $item) {
+            $items[] = [
+                'name' => $cate,
+                'items' => $item
+            ];
+        }
+
+        return $items;
     }
 }
