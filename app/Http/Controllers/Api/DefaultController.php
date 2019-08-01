@@ -41,13 +41,16 @@ class DefaultController extends Controller
             'community' => 'required|numeric|min:1',
             'floor' => 'required|numeric|min:1',
             'unit' => 'required|numeric|min:1',
-            'room' => 'required',
+            'room' => 'required|min:1|max:6',
+            'identity_no' => 'required|min:15|max:18',
         ];
+
         $messages = [
             'community.*' => '请选择您产权所在小区',
             'floor.*' => '请正确输入楼号',
             'unit.*' => '请正确输入单元号',
             'room.*' => '请正确输入房间号',
+            'identity_no.*' => '请输入正确身份证号',
         ];
 
         $validate = Validator::make($request->all(), $rule, $messages);
@@ -56,45 +59,41 @@ class DefaultController extends Controller
             return fail($validate->errors()->first());
         }
 
-        $where = $request->only('floor', 'unit', 'room');
+        $where = $request->only('floor', 'unit', 'room', 'mobile');
 
-        $result = Deed::where(array_merge($where, ['community_id' => $request->input('community')]))
+        $where = array_merge($where, [
+            'community_id' => $request->input('community'),
+            'batch' => $request->input('batch', 1),
+            'type' => $request->input('type', 0) > 1 ? 2 : 0
+        ]);
+
+        $result = Deed::where($where)
             ->with('community')
+            ->select([
+                'type', 'community_id', 'floor', 'batch', 'unit', 'room', 'address', 'client_name', 'owner_name',
+                'identity_no', 'contract_no', 'mobile', 'status', 'sub_status', 'updated_at'
+            ])
             ->first();
 
         if (! $result) {
-            return fail('抱歉！未查询到记录.');
+            return fail('抱歉！未查询到记录.', 5001);
         }
+        $address = $result->community->name . implode('-', [
+            $result->floor, $result->unit, $result->room
+        ]);
 
-        $phone = 18101333903;
-        $address = "北京市生命科技园地铁站";
-        $home = implode('-', [$result->community->name, $result->floor, $result->unit, $result->room]);
-        $message = "";
-        switch ($result->status)
-        {
-            case 0:
-            case 1:
-                $message = sprintf("您位于%s的房屋产权办理事宜尚未与我们联系，请尽快赴%s，或拨打%s电话与我们沟通，谢谢。", $home, $address, $phone);
-                break;
-            case 2:
-                $message = sprintf("您位于%s的房屋产权办理事宜已与我们取得联系，恭喜您，您已被列入近期办理产权的业主范畴，请耐心等待。",
-                    $home
-                );
-                break;
-            case 3:
-                $message = sprintf("您位于%s的房屋产权办理已顺利完成，请尽快赴%s或拨打%s电话联系我们，办理产权证书领取，谢谢。",
-                    $home, $address, $phone
-                );
-                break;
-            case 4:
-                $message = sprintf("您位于%s的房屋产权书已于%s完成领取，祝您生活愉快。", $home, $result->updated_at->format('Y年m月d日'));
-                break;
-            default:
-                $message = sprintf("您到产权办理信息存在信息不完整。请尽快拨打电话%s进行进一步补全信息!");
-        }
+        $notice = sprintf(
+            "您位于[%s]的%s办理进度为[%s], 如有疑问请拨打%s咨询详情。",
+            $address, ['住宅产权', '商业产权', '车位产权'][$request->input('type', 0)],
+            $status = Deed::status()[$result->status],
+            config('services.yuantang.tel', '4006008899')
+        );
 
         return success([
-            'result' => $message
+            'step' => $result->status ? $result->status -1 : -1,
+            'status' => $status,
+            'notice' => $notice,
+            'client' => $result->client_name
         ]);
     }
 
@@ -107,30 +106,5 @@ class DefaultController extends Controller
     public function communities(Request $request)
     {
         return success(CommunityService::selectItems());
-    }
-
-    /**
-     * @param Request $request
-     * @return array
-     */
-    public function banners(Request $request)
-    {
-        $items = Banner::latest('top')
-            ->latest('created_at')
-            ->whereNotNull('published_at')
-            ->get();
-
-        return success($items);
-    }
-
-    /**
-     * @param Request $request
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function notice(Request $request)
-    {
-        return success([
-            'notice' => "👏 圆堂产权办理查询系统正式上线啦～  🎁 金秋送爽喜迎佳节产品优惠大升级！"
-        ]);
     }
 }

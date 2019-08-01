@@ -14,5 +14,7 @@ use Illuminate\Http\Request;
 */
 
 Route::group(['prefix' => 'sys'], function () {
-    Route::get('init',          'DefaultController@init'); //   初始化
+    Route::get('init',          'DefaultController@init');          // 基础数据
+    Route::get('query',         'DefaultController@deedQuery');     // 产权查询
+    Route::get('communities',   'DefaultController@communities');   // 小区列表
 });

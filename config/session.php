@@ -196,4 +196,7 @@ return [
 
     'same_site' => null,
 
+    'yuantang' => [
+        'tel' => '4006008888'
+    ]
 ];
