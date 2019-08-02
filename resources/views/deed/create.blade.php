@@ -215,6 +215,22 @@
                                                             <div class="row">
                                                                 <div class="col">
                                                                     <div class="form-group">
+                                                                        <div class="form-group">
+                                                                            <label>类型 <small class="text-danger">* 类型选择</small></label>
+                                                                            <select name="type" class="form-control select" id="">
+                                                                                <option @if(request('type') == 0) selected  @endif value="0">住宅产权</option>
+                                                                                <option @if(request('type') == 1) selected  @endif value="1">商业产权</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col">
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col">
+                                                                    <div class="form-group">
                                                                         <label>备注</label>
                                                                         <textarea class="form-control" name="remark" id="" cols="30" placeholder="备注..."
                                                                                   rows="5">{{ old('remark') }}</textarea>

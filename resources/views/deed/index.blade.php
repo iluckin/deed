@@ -7,12 +7,11 @@
                 <div class="card-header bg-none border-0">
                     <div class="row">
                         <div class="col-6 text-left">
-                            <span class="display-5 text-primary">住宅产权信息管理</span>
+                            <span class="display-5 text-primary">产权信息管理</span>
                         </div>
                         <div class="col-6 text-right">
                             <div class="btn-group">
-                                <a class="btn btn-sm btn-outline-light btn-group-active">住宅产权</a>
-                                <a href="{{ route('car.index') }}"  class="btn btn-sm btn-outline-light">车位产权</a>
+                                <a href="{{ route('car.index', ['type' => 2]) }}"  class="btn btn-sm btn-outline-light">车位</a>
                             </div>
                         </div>
                     </div>
@@ -92,9 +91,12 @@
                                                         <br>
                                                         <br>
                                                         <div class="">
-                                                            ID: {{ implode('-', [$item->floor, $item->unit, $item->room]) }} <br>
-                                                            客户: {{ $item->client_name }} <br>
-                                                            电话: {{ $item->mobile }}
+                                                           <small>
+                                                           <i class="fa fa-flag"></i>
+                                                                {{ $item->floor }}号楼{{ $item->unit }}单元{{ $item->room }}房间 <br>
+                                                                客户姓名: {{ $item->client_name }} <br>
+                                                                客户电话: {{ $item->mobile }}
+                                                            </small>
                                                         </div>
                                                     </h6>
                                                     <span class="pull-right classes-list-box-tools" style="height: 10px;">
@@ -108,7 +110,10 @@
                                         <div class="row">
                                             <div class="col text-left">
                                                 <span class="badge badge-light text-primary">
-                                                    <i class="fa fa-product-hunt "></i> {{ \App\Models\Deed::status()[$item->status] }}
+                                                     {{ ['住宅', '商业'][$item->type] }}
+                                                </span>
+                                                <span class="badge badge-light text-primary">
+                                                    <i class="fa fa-clock-o "></i> {{ \App\Models\Deed::status()[$item->status] }}
                                                 </span>
                                             </div>
                                         </div>

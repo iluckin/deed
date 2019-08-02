@@ -25,11 +25,11 @@
                 </div>
                 <div class="e-navbar__actions ml-3">
                     <ul class="navbar-nav flex-nowrap flex-row">
-                        <li class="nav-item d-none d-md-inline-block">
+                        <!-- <li class="nav-item d-none d-md-inline-block">
                             <a class="nav-link mt-1" href="" onclick="return false">
                                 <i class="fa fa-bell-o"></i>
                             </a>
-                        </li>
+                        </li> -->
                         <li class="dropdown nav-item">
                             <a href="" class="dropdown-toggle nav-link" data-toggle="dropdown">
                                 <span class="d-none d-md-inline">
@@ -39,8 +39,8 @@
                             </a>
                             <div class="dropdown-menu dropdown-menu-right bg-white">
                                 <a class="dropdown-item disabled text-primary" href="" onclick="return false">{{ auth()->user()->name }}</a>
-                                <a class="dropdown-item" href="" onclick="return false">个人中心</a>
-                                <a class="dropdown-item" href="" onclick="return false">安全设置</a>
+                                <!-- <a class="dropdown-item" href="" onclick="return false">个人中心</a>
+                                <a class="dropdown-item" href="" onclick="return false">安全设置</a> -->
                                 <div class="dropdown-divider"></div>
 
                                 <a class="dropdown-item" href="" onclick="event.preventDefault();
@@ -64,24 +64,24 @@
         </div>
         <div class="e-navlist my-2">
             <ul class="nav">
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a class="nav-link px-2 text-center {{ sideBarActive('home') }}"  href="{{ route('home') }}">
                         <i class="fa fa-2x fa-fw fa-home my-2"></i><br>
                         <span>首页</span>
                     </a>
-                </li>
+                </li> -->
                 <li>
                     <a href="{{ route('deed.index') }}" class="nav-link px-2 text-center {{ sideBarActive('deed') }}">
                         <i class="fa fa-2x fa-fw fa-address-card-o my-2"></i><br>
                         <span>产权</span>
                     </a>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                   <a class="nav-link px-2 text-center {{ sideBarActive('house') }}" href="{{ route('banner.index') }}">
                     <i class="fa fa-2x fa-fw fa-hospital-o my-2"></i><br>
                     <span>二手房</span>
                   </a>
-                </li>
+                </li> -->
                 <li class="nav-item">
                   <a class="nav-link px-2 text-center {{ sideBarActive('community') }}" href="{{ route('community.index') }}">
                     <i class="fa fa-2x fa-fw fa-fort-awesome my-2"></i><br>
@@ -90,21 +90,9 @@
                 </li>
                 <li class="nav-item">
                   <a class="nav-link px-2 text-center {{ sideBarActive('cms') }}" href="{{ route('banner.index') }}">
-                    <i class="fa fa-2x fa-fw fa-file-text-o my-2"></i><br>
-                    <span>内容</span>
+                    <i class="fa fa-2x fa-fw fa-photo my-2"></i><br>
+                    <span>轮播图</span>
                   </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link px-2 text-center {{ sideBarActive('help') }}" href="{{ route('help.index') }}">
-                        <i class="fa fa-2x fa-fw fa-cogs my-2"></i><br>
-                        <span>系统</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link px-2 text-center {{ sideBarActive('help') }}" href="{{ route('help.index') }}">
-                        <i class="fa fa-2x fa-fw fa-question-circle my-2"></i><br>
-                        <span>帮助</span>
-                    </a>
                 </li>
             </ul>
         </div>

@@ -17,6 +17,7 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
+        return redirect()->to('deed');
         return view('home');
     }
 }

@@ -115,8 +115,7 @@ class BannerController extends Controller
 
         $this->validate($request, [
             'title' => 'required',
-            'link' => 'required|url',
-            'file' => 'required|image'
+            'link' => 'required|url'
         ]);
 
         $banner = array_merge(['admin_id' => Auth::id()], $request->only(

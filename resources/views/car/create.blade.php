@@ -33,7 +33,7 @@
                                             <div class="tab-pane active text-dark">
                                                 <form class="form" action="{{ route('car.store') }}" novalidate="" name="create-category" enctype="multipart/form-data" method="post">
                                                     @csrf
-                                                    <input type="hidden" name="type" value="1">
+                                                    <input type="hidden" name="type" value="2">
                                                     <div class="row">
                                                         <input type="file" accept="image/gif, image/jpeg, image/png, image/jpg"  name="cover" id="classes-cover" style="width: 0; height: 0; padding: 0 !important; margin: 0 !important;">
                                                         <div class="col text-dark">

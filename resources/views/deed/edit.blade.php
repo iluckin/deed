@@ -251,6 +251,15 @@
                                                                         <input class="form-control" type="text" name="address" placeholder="详细地址" value="{{ old('address', $item->address) }}" required>
                                                                     </div>
                                                                 </div>
+                                                                <div class="col">
+                                                                    <div class="form-group">
+                                                                        <label>类型 <small class="text-danger">* 类型选择</small></label>
+                                                                        <select name="type" class="form-control select" id="">
+                                                                            <option @if(request('type', $item->type) == 0) selected  @endif value="0">住宅产权</option>
+                                                                            <option @if(request('type', $item->type) == 1) selected  @endif value="1">商业产权</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                             <div class="row">
                                                                 <div class="col">

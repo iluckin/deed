@@ -31,7 +31,7 @@ class Deed extends Model
      */
     public function scopeHouse($query)
     {
-        $query->where('type', 0);
+        $query->whereIn('type', [0, 1]);
     }
 
     /**
@@ -39,7 +39,7 @@ class Deed extends Model
      */
     public function scopeCar($query)
     {
-        $query->where('type', 1);
+        $query->where('type', 2);
     }
 
     /**

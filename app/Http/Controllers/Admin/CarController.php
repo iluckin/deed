@@ -122,7 +122,7 @@ class CarController extends Controller
             $deliverDate = trim($item[8] ?? '') ? Carbon::createFromFormat('Y-m-d', $item[8], 'PRC')->format('Y-m-d') : null; // $item[8]
             $deeds[] = [
                 'community_id' => $communityId, 'floor' => $floor, 'unit' => $unit, 'batch' => $request->input('batch', 1),
-                'room' => $room, 'client_name' => $item[1] ?? null, 'identity_no' => $item[2] ?? null, 'type' => $request->input('type', 1),
+                'room' => $room, 'client_name' => $item[1] ?? null, 'identity_no' => $item[2] ?? null, 'type' => $request->input('type', 2),
                 'contract_no' => $item[3] ?? null, 'acreage' => $item[4] ?? null, 'contract_price' => $item[5] ?? null,
                 'contract_date' => $contractDate, 'deliver_date' => $deliverDate, 'status' => $request->input('status', 0),
                 'mobile' => $item[9] ?? null, 'change_owner' => $item[10] ?? null, 'dispute' => $item[11] ?? null,
@@ -180,7 +180,7 @@ class CarController extends Controller
     }
 
     /**
-     * @return \Symfony\Component\HttpFoundation\BinaryFileResponse
+     * @return file
      */
     public function template()
     {

@@ -11,8 +11,7 @@
                         </div>
                         <div class="col-6 text-right">
                             <div class="btn-group">
-                                <a href="{{ route('deed.index') }}"   class="btn btn-sm btn-outline-light">住宅产权</a>
-                                <a class="btn btn-sm btn-outline-light  btn-group-active">车位产权</a>
+                                <a href="{{ route('deed.index') }}"   class="btn btn-sm btn-outline-light">商住</a>
                             </div>
                         </div>
                     </div>
@@ -92,9 +91,10 @@
                                                         <br>
                                                         <br>
                                                         <small class="">
+                                                            <i class="fa fa-flag"></i>
                                                             {{ $item->floor }}号楼{{ $item->unit }}层{{ $item->room }}号 <br>
-                                                            客户: {{ $item->client_name }} <br>
-                                                            电话: {{ $item->mobile }}
+                                                            客户姓名: {{ $item->client_name }} <br>
+                                                            客户电话: {{ $item->mobile }}
                                                         </small>
                                                     </h6>
                                                     <span class="pull-right classes-list-box-tools" style="height: 10px;">
@@ -108,7 +108,10 @@
                                         <div class="row">
                                             <div class="col text-left">
                                                 <span class="badge badge-light text-primary">
-                                                    <i class="fa fa-product-hunt "></i> {{ \App\Models\Deed::status()[$item->status] }}
+                                                   车位
+                                                </span>
+                                                <span class="badge badge-light text-primary">
+                                                    <i class="fa fa-clock-o"></i> {{ \App\Models\Deed::status()[$item->status] }}
                                                 </span>
                                             </div>
                                         </div>

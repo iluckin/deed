@@ -86,8 +86,11 @@
                                                                 </div>
                                                                 <div class="col">
                                                                     <div class="form-group">
-                                                                        <label>备注 <small class="text-danger"></small></label>
-                                                                        <input type="text" class="form-control" name="remark" placeholder="备注">
+                                                                        <label>类型 <small class="text-danger">* 类型选择</small></label>
+                                                                        <select name="type" class="form-control select" id="">
+                                                                            <option @if(request('type') == 0) selected  @endif value="0">住宅产权</option>
+                                                                            <option @if(request('type') == 1) selected  @endif value="1">商业产权</option>
+                                                                        </select>
                                                                     </div>
                                                                 </div>
                                                             </div>
