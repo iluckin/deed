@@ -43,5 +43,9 @@ return [
             'tolerance' => env('STRIPE_WEBHOOK_TOLERANCE', 300),
         ],
     ],
+    
+    'yuantang' => [
+        'tel' => '010-66007077'
+    ]
 
 ];
