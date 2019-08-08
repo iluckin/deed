@@ -39,6 +39,11 @@ class DeedController extends Controller
             }
         }
 
+        $community = $request->input('community_id', -1);
+        if ($community != -1 && $community > 0) {
+            $queryBuilder->where('community_id', $community);
+        }
+
         $items = $queryBuilder->paginate(16)->appends($request->all());
 
         return view('deed.index', compact('items'));
@@ -109,28 +114,25 @@ class DeedController extends Controller
         if (! $load->count()) {
             return back()->withErrors('导入失败！请检查导入模板是否正确。');
         }
+        try {
+            $deeds = [];
+            $communityId = $request->input('community_id', 0);
+            foreach ($load->first() as $index => $item) {
+                if ($index <= 1) {
+                    continue;
+                }
 
-        $deeds = [];
-        $communityId = $request->input('community_id', 0);
-        foreach ($load->first() as $index => $item) {
-            if ($index <= 1) {
-                continue;
+                list($floor, $unit, $room) = explode('-', $item[0], 3);
+                $deliverDate = trim($item[4] ?? '') ? Carbon::createFromFormat('Y-m-d', $item[4], 'PRC')->format('Y-m-d') : null; // $item[8]
+                $deeds[] = [
+                    'community_id' => $communityId, 'floor' => $floor, 'unit' => $unit, 'batch' => $request->input('batch', 1),
+                    'room' => $room, 'client_name' => $item[1] ?? null, 'identity_no' => $item[2] ?? null, 'type' => $request->input('type', 0),
+                    'deliver_date' => $deliverDate, 'status' => $request->input('status', 0),
+                    'mobile' => $item[3] ?? null, 'change_owner' => $item[5] ?? null, 'dispute' => $item[6] ?? null,
+                    'created_at' => $now = Carbon::now('PRC')->toDateTimeString(), 'updated_at' => $now,
+                ];
             }
 
-            list($floor, $unit, $room) = explode('-', $item[0], 3);
-            $contractDate = trim($item[6] ?? '') ? Carbon::createFromFormat('Y-m-d', $item[6], 'PRC')->format('Y-m-d') : null; // $item[6]
-            $deliverDate = trim($item[8] ?? '') ? Carbon::createFromFormat('Y-m-d', $item[8], 'PRC')->format('Y-m-d') : null; // $item[8]
-            $deeds[] = [
-                'community_id' => $communityId, 'floor' => $floor, 'unit' => $unit, 'batch' => $request->input('batch', 1),
-                'room' => $room, 'client_name' => $item[1] ?? null, 'identity_no' => $item[2] ?? null, 'type' => $request->input('type', 0),
-                'contract_no' => $item[3] ?? null, 'acreage' => $item[4] ?? null, 'contract_price' => $item[5] ?? null,
-                'contract_date' => $contractDate, 'deliver_date' => $deliverDate, 'status' => $request->input('status', 0),
-                'mobile' => $item[9] ?? null, 'change_owner' => $item[10] ?? null, 'dispute' => $item[11] ?? null,
-                'created_at' => $now = Carbon::now('PRC')->toDateTimeString(), 'updated_at' => $now,
-            ];
-        }
-
-        try {
             Deed::insert($deeds);
             return back()->withErrors('操作成功！共导入' . count($deeds) . '条记录.');
         } catch (\Exception $exception) {
@@ -184,8 +186,8 @@ class DeedController extends Controller
      */
     public function template()
     {
-        $file = storage_path('app/template.xls');
+        $file = storage_path('app/house.xls');
 
-        return response()->download($file, 'template.xls');
+        return response()->download($file, 'house.xls');
     }
 }

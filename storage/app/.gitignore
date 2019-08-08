@@ -2,5 +2,5 @@
 !public/
 !.gitignore
 !regions.sql
-!template.xls
-!template_car.xls
+!car.xls
+!house.xls
