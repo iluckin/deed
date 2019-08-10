@@ -17,7 +17,7 @@ class BannerController extends Controller
      */
     public function index(Request $request)
     {
-        $queryBuilder = Banner::latest('published_at');
+        $queryBuilder = Banner::latest('published_at')->oldest('top');
         $status = $request->input('publish', -1);
         if ($status != -1 && $status == 0)
             $queryBuilder->whereNull('published_at');
@@ -68,7 +68,7 @@ class BannerController extends Controller
         $imageUrl =  $disk->getUrl($imagePath);
 
         $newBanner = array_merge(['admin_id' => Auth::id(), 'image' => $imageUrl], $request->only(
-            'title', 'link'
+            'title', 'link', 'top'
         ));
 
         Banner::create(array_merge($newBanner, [
@@ -119,7 +119,7 @@ class BannerController extends Controller
         ]);
 
         $banner = array_merge(['admin_id' => Auth::id()], $request->only(
-            'title', 'link'
+            'title', 'link', 'top'
         ));
 
         if ($request->hasFile('file')) {

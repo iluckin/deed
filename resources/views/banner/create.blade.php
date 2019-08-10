@@ -37,11 +37,21 @@
                                                         <input type="file" accept="image/gif, image/jpeg, image/png, image/jpg"  name="file" id="upload" style="width: 0; height: 0; padding: 0 !important; margin: 0 !important;">
                                                         <div class="col text-dark">
                                                             <div class="row">
+                                                              <div class="col">
+                                                                <div class="form-group">
+                                                                  <div class="form-group">
+                                                                    <label>标题 <small class="text-danger">* 必填</small></label>
+                                                                    <input class="form-control" type="text" name="title" placeholder="标题" value="{{ old('title') }}" required>
+                                                                  </div>
+                                                                </div>
+                                                              </div>
+                                                            </div>
+                                                            <div class="row">
                                                                 <div class="col">
                                                                     <div class="form-group">
                                                                         <div class="form-group">
-                                                                            <label>标题 <small class="text-danger">* 必填</small></label>
-                                                                            <input class="form-control" type="text" name="title" placeholder="标题" value="{{ old('title') }}" required>
+                                                                            <label>排序 <small class="text-danger">* 必填</small></label>
+                                                                            <input class="form-control" type="number" name="top" placeholder="排序" value="{{ old('top', 0) }}" required>
                                                                         </div>
                                                                     </div>
                                                                 </div>
