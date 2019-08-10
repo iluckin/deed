@@ -18,6 +18,8 @@ class CarouselImageService extends Service
      */
     public static function items($limit = 10)
     {
-        return Banner::latest()->get();
+        return Banner::latest()
+            ->whereNotNull('published_at')
+            ->get();
     }
 }
